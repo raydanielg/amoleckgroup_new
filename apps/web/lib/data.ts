@@ -1,10 +1,10 @@
 export const siteConfig = {
-  name: "Amoleck Group Company Ltd",
+  name: "Amoleck Group",
   shortName: "Amoleck",
-  tagline: "Advancing Healthcare Through Innovation, Technology & Professional Care",
+  tagline: "Medical Equipment & Healthcare Technology",
   description:
-    "Amoleck Group Company Ltd delivers innovative healthcare solutions, physiotherapy services, medical equipment, and technology solutions designed to improve lives and transform healthcare delivery.",
-  location: "Dar es Salaam, Tanzania",
+    "Supply, installation and servicing of medical, physiotherapy and diagnostic equipment for hospitals and clinics across Kenya.",
+  location: "Kenya",
   phone: "+255 742 710 054",
   email: "info@amoleck.co.tz",
   website: "amoleck.co.tz",
@@ -17,6 +17,15 @@ export const siteConfig = {
     twitter: "https://twitter.com/amoleck",
   },
 }
+
+export const tickerItems = [
+  "Certified biomedical technicians",
+  "Nationwide delivery",
+  "Installation & training included",
+  "Genuine manufacturer warranty",
+  "24/7 emergency support",
+  "Service contracts available",
+]
 
 export const navLinks = [
   { label: "Home", href: "/" },
@@ -31,70 +40,76 @@ export const navLinks = [
 
 export const services = [
   {
-    title: "Physiotherapy",
-    slug: "physiotherapy",
-    icon: "heart",
-    description:
-      "Professional physiotherapy assessment, rehabilitation, pain management, and sports rehabilitation services.",
-    items: [
-      "Physiotherapy assessment",
-      "Rehabilitation",
-      "Pain management",
-      "Sports rehabilitation",
-      "Physical rehabilitation",
-      "Post-operative rehabilitation",
-    ],
-    image:
-      "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&q=80",
-    cta: { label: "Learn More", href: "/services/physiotherapy" },
-  },
-  {
-    title: "Medical Services",
+    title: "Medical Equipment",
     slug: "medical",
     icon: "stethoscope",
     description:
-      "Comprehensive general medical care, specialist services, health assessments, and wellness counseling.",
+      "Diagnostic, surgical, ward and laboratory equipment — sourced from manufacturers we actually represent, not grey-market imports.",
     items: [
-      "General medical care",
-      "Specialist services",
-      "Health assessment",
-      "Counseling & wellness",
+      "Site assessment",
+      "Specification",
+      "Procurement",
+      "Delivery",
+      "Installation & commissioning",
+      "Staff training",
+      "Warranty registration",
+      "Scheduled maintenance",
     ],
     image:
       "https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=800&q=80",
     cta: { label: "Learn More", href: "/services/medical" },
   },
   {
-    title: "Medical Equipment",
-    slug: "equipment",
-    icon: "device",
+    title: "Physiotherapy Solutions",
+    slug: "physiotherapy",
+    icon: "heart",
     description:
-      "Supply of medical equipment, physiotherapy equipment, rehabilitation equipment, and modern healthcare devices.",
+      "Complete rehabilitation setups: therapy tables, electrotherapy, exercise and mobility equipment, plus practitioner training.",
     items: [
-      "Medical equipment",
-      "Physiotherapy equipment",
-      "Rehabilitation equipment",
-      "Modern healthcare devices",
+      "Treatment couches",
+      "Electrotherapy (TENS, ultrasound, shortwave)",
+      "Exercise & gym equipment",
+      "Gait and mobility aids",
+      "Assessment tools",
+      "Consumables supply",
     ],
     image:
-      "https://images.unsplash.com/photo-1587854692152-cbe611db5902?w=800&q=80",
-    cta: { label: "View Equipment", href: "/equipment" },
+      "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&q=80",
+    cta: { label: "Learn More", href: "/services/physiotherapy" },
   },
   {
-    title: "Technology Solutions",
+    title: "Healthcare Technology",
     slug: "technology",
     icon: "code",
     description:
-      "Software development, digital healthcare solutions, IT consulting, and business technology solutions.",
+      "Clinical systems and diagnostic integration, configured to work with the equipment you already own.",
     items: [
-      "Software development",
-      "Digital healthcare solutions",
-      "IT consulting",
-      "Business technology solutions",
+      "Equipment integration",
+      "Diagnostic data handling",
+      "Systems configuration",
+      "Staff onboarding",
+      "Ongoing technical support",
     ],
     image:
       "https://images.unsplash.com/photo-1451187580459-9546f8936333?w=800&q=80",
-    cta: { label: "Explore Technology", href: "/technology" },
+    cta: { label: "Learn More", href: "/services/technology" },
+  },
+  {
+    title: "Service & Maintenance",
+    slug: "equipment",
+    icon: "device",
+    description:
+      "Preventive maintenance schedules, calibration, spare parts and emergency callout under a single contract.",
+    items: [
+      "Preventive maintenance",
+      "Calibration",
+      "Spare parts",
+      "Emergency callout",
+      "Service contracts",
+    ],
+    image:
+      "https://images.unsplash.com/photo-1587854692152-cbe611db5902?w=800&q=80",
+    cta: { label: "Learn More", href: "/services/equipment" },
   },
 ]
 
@@ -227,21 +242,19 @@ export const equipmentCategories = [
 ]
 
 export const physiotherapyServices = [
-  "Musculoskeletal rehabilitation",
-  "Sports injuries",
-  "Neurological rehabilitation",
-  "Post-surgical rehabilitation",
-  "Pain management",
-  "Exercise therapy",
-  "Elderly rehabilitation",
+  "Treatment & assessment",
+  "Electrotherapy",
+  "Exercise & rehabilitation",
+  "Mobility & support",
+  "Consumables",
 ]
 
 export const howItWorksService = [
-  { step: "01", title: "Choose a Service", description: "Browse our healthcare services and select what fits your needs." },
-  { step: "02", title: "Contact Our Team", description: "Reach out via phone, email, or our online request form." },
-  { step: "03", title: "Assessment / Consultation", description: "Our professionals assess your needs and recommend solutions." },
-  { step: "04", title: "Personalized Solution", description: "Receive a tailored plan or quotation for your requirements." },
-  { step: "05", title: "Ongoing Support", description: "We provide continued support, follow-up, and after-sales care." },
+  { step: "01", title: "Tell us the need", description: "A phone call or the quote form. Describe the department, the budget range, and the timeline." },
+  { step: "02", title: "We specify", description: "Our team recommends equipment that fits the room, the power supply and the staff you have — not just the biggest model." },
+  { step: "03", title: "Written quote", description: "Full specification, landed price, lead time and warranty terms." },
+  { step: "04", title: "Delivery & installation", description: "We deliver, install, commission and train your staff on site." },
+  { step: "05", title: "We stay", description: "Preventive maintenance, calibration and callout under a service contract." },
 ]
 
 export const howItWorksEquipment = [
@@ -256,50 +269,55 @@ export const howItWorksEquipment = [
 
 export const whyChooseUs = [
   {
-    title: "Professional Expertise",
-    description: "Experienced professionals delivering reliable healthcare and technology solutions.",
-    icon: "users",
-  },
-  {
-    title: "Modern Solutions",
-    description: "Access to modern healthcare technologies and medical equipment.",
-    icon: "device",
-  },
-  {
-    title: "Customer Focused",
-    description: "Solutions designed around customer needs and expectations.",
-    icon: "heart",
-  },
-  {
-    title: "Quality & Reliability",
-    description: "Commitment to quality products and professional services you can trust.",
+    title: "We install what we sell",
+    description: "Commissioning, calibration and staff training are part of the price, not a line item added later.",
     icon: "shield",
   },
   {
-    title: "Innovation",
-    description: "Combining healthcare with technology and continuous innovation.",
-    icon: "bulb",
+    title: "Parts on the shelf",
+    description: "We hold stock for the equipment we supply, so a fault means days of downtime, not months.",
+    icon: "device",
   },
   {
-    title: "After-Sales Support",
-    description: "Technical support, maintenance, and customer assistance when you need it.",
+    title: "Technicians, not resellers",
+    description: "Our engineers are biomedical-trained and travel to site anywhere in Kenya.",
+    icon: "users",
+  },
+  {
+    title: "Written quotes",
+    description: "Specification, price, lead time and warranty terms in one document — no verbal estimates.",
     icon: "support",
   },
 ]
 
 export const technologyCards = [
-  { title: "Software Development", description: "Custom software solutions tailored to your organization's needs." },
-  { title: "Healthcare Systems", description: "Digital healthcare platforms that improve patient care and efficiency." },
-  { title: "Business Management Systems", description: "Streamline operations with integrated management systems." },
-  { title: "Mobile Applications", description: "Native and cross-platform mobile apps for healthcare and business." },
-  { title: "Web Applications", description: "Modern, responsive web applications built with cutting-edge technology." },
-  { title: "IT Consulting", description: "Strategic technology consulting to drive your organization forward." },
+  { title: "Equipment Integration", description: "Connect diagnostic and clinical equipment so data flows between systems without manual entry." },
+  { title: "Diagnostic Data Handling", description: "Secure handling, storage and routing of diagnostic data across your facility." },
+  { title: "Systems Configuration", description: "We configure around your existing estate rather than asking you to replace it." },
+  { title: "Staff Onboarding", description: "Practical training so your team can use the systems from day one." },
+  { title: "Technical Support", description: "Local support for technology we supply — and technology we didn't." },
+  { title: "Clinical Systems", description: "Modern clinical systems, integrated properly and supported locally." },
 ]
 
 export const quoteOptions = [
   "Medical Equipment",
-  "Physiotherapy Service",
-  "Medical Service",
-  "Technology Solution",
+  "Physiotherapy Solutions",
+  "Healthcare Technology",
+  "Service & Maintenance",
+  "Other",
+]
+
+export const statsNumbers = [
+  { value: "[X]+", label: "Years serving Kenya" },
+  { value: "[X]+", label: "Installations completed" },
+  { value: "[X]", label: "Counties covered" },
+  { value: "24/7", label: "Emergency support" },
+]
+
+export const facilityTypes = [
+  "Hospital",
+  "Clinic",
+  "Physiotherapy practice",
+  "Laboratory",
   "Other",
 ]

@@ -4,8 +4,8 @@ import { buttonVariants } from "@workspace/ui/components/button"
 import { cn } from "@workspace/ui/lib/utils"
 
 export function QuoteCTA({
-  title = "Looking for a healthcare solution?",
-  description = "Whether you need professional physiotherapy, medical equipment or technology solutions, our team is ready to help.",
+  title = "Let's equip your facility properly.",
+  description = "Tell us what you need — a single device, a full department fit-out, or a service contract for equipment you already own. You will get a written quote, not a sales call.",
 }: {
   title?: string
   description?: string

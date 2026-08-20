@@ -11,8 +11,8 @@ import { QuoteCTA } from "@/components/quote-cta"
 import { equipmentCategories } from "@/lib/data"
 
 export const metadata: Metadata = {
-  title: "Medical Equipment Supply",
-  description: "Supply of medical equipment, physiotherapy equipment, rehabilitation equipment, and modern healthcare devices by Amoleck Group.",
+  title: "Equipment Supply & Fit-Out — Amoleck Group",
+  description: "From a single device to a full department fit-out, with warranty, training and service cover included.",
 }
 
 export default function ServiceEquipmentPage() {
@@ -25,19 +25,19 @@ export default function ServiceEquipmentPage() {
             <FadeIn>
               <Badge variant="secondary" className="mb-4">
                 <Package className="size-3.5" />
-                Medical Equipment
+                Equipment Supply
               </Badge>
               <h1 className="text-4xl font-bold tracking-tight lg:text-5xl">
-                Medical Equipment Supply
+                From one device to a full department fit-out.
               </h1>
               <p className="mt-6 max-w-xl text-lg text-muted-foreground">
-                We supply a wide range of medical equipment, physiotherapy equipment, rehabilitation equipment, and modern healthcare devices from trusted brands.
+                Tell us the room and the budget and we will come back with a specification that fits both. We supply from manufacturers we represent directly, so the warranty you&apos;re quoted is the warranty you get.
               </p>
               <Link
                 href="/equipment"
                 className={cn(buttonVariants({ size: "lg" }), "mt-8")}
               >
-                Browse Equipment
+                Browse equipment
                 <ArrowRight className="size-4" />
               </Link>
             </FadeIn>
@@ -55,6 +55,22 @@ export default function ServiceEquipmentPage() {
       </section>
 
       <Section>
+        <FadeIn>
+          <div className="mx-auto max-w-3xl">
+            <h2 className="text-2xl font-bold">Good fit for</h2>
+            <div className="mt-6 grid gap-3 sm:grid-cols-2">
+              {["New clinic setups", "Department expansions", "Equipment replacement cycles", "Tender responses"].map((item) => (
+                <div key={item} className="flex items-center gap-3 rounded-lg border border-border/40 p-4">
+                  <CheckCircle2 className="size-5 shrink-0 text-primary" />
+                  <span className="text-sm">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </FadeIn>
+      </Section>
+
+      <Section className="bg-muted/30">
         <FadeIn>
           <SectionHeader
             eyebrow="Categories"

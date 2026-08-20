@@ -5,20 +5,24 @@ import { buttonVariants } from "@workspace/ui/components/button"
 import { Card, CardContent } from "@workspace/ui/components/card"
 import { Badge } from "@workspace/ui/components/badge"
 import { cn } from "@workspace/ui/lib/utils"
-import { Section, SectionHeader } from "@/components/section"
-import { FadeIn, FadeInStagger, FadeInItem } from "@/components/animations"
+import { Section } from "@/components/section"
+import { FadeIn } from "@/components/animations"
 import { QuoteCTA } from "@/components/quote-cta"
 
 export const metadata: Metadata = {
-  title: "Medical Services",
-  description: "Comprehensive general medical care, specialist services, health assessments, and wellness counseling at Amoleck Group.",
+  title: "Medical Equipment Services — Amoleck Group",
+  description: "Procurement, installation, commissioning and maintenance of hospital and clinical equipment.",
 }
 
-const medicalServices = [
-  "General medical care",
-  "Specialist services",
-  "Health assessment",
-  "Counseling & wellness",
+const includedItems = [
+  "Site assessment",
+  "Specification",
+  "Procurement",
+  "Delivery",
+  "Installation & commissioning",
+  "Staff training",
+  "Warranty registration",
+  "Scheduled maintenance",
 ]
 
 export default function ServiceMedicalPage() {
@@ -29,18 +33,18 @@ export default function ServiceMedicalPage() {
         <div className="mx-auto max-w-7xl px-4 py-16 lg:px-8 lg:py-24">
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <FadeIn>
-              <Badge variant="secondary" className="mb-4">Medical Services</Badge>
+              <Badge variant="secondary" className="mb-4">Medical Equipment</Badge>
               <h1 className="text-4xl font-bold tracking-tight lg:text-5xl">
-                Medical Services
+                Medical equipment, specified and supported properly.
               </h1>
               <p className="mt-6 max-w-xl text-lg text-muted-foreground">
-                Comprehensive general medical care, specialist services, health assessments, and wellness counseling delivered by experienced healthcare professionals.
+                We procure, install, commission and maintain equipment for wards, theatres, laboratories and diagnostic units. Every installation includes calibration, staff training and a documented handover.
               </p>
               <Link
                 href="/request-quote"
                 className={cn(buttonVariants({ size: "lg" }), "mt-8")}
               >
-                Request a Quote
+                Request a quote
                 <ArrowRight className="size-4" />
               </Link>
             </FadeIn>
@@ -48,7 +52,7 @@ export default function ServiceMedicalPage() {
               <div className="aspect-[4/3] overflow-hidden rounded-2xl">
                 <img
                   src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=800&q=80"
-                  alt="Medical services"
+                  alt="Medical equipment"
                   className="size-full object-cover"
                 />
               </div>
@@ -59,29 +63,18 @@ export default function ServiceMedicalPage() {
 
       <Section>
         <FadeIn>
-          <SectionHeader
-            eyebrow="Our Services"
-            title="What We Offer"
-            description="Comprehensive medical services for individuals and organizations."
-          />
+          <div className="mx-auto max-w-3xl">
+            <h2 className="text-2xl font-bold">What&apos;s included</h2>
+            <div className="mt-6 grid gap-3 sm:grid-cols-2">
+              {includedItems.map((item) => (
+                <div key={item} className="flex items-center gap-3 rounded-lg border border-border/40 p-4">
+                  <CheckCircle2 className="size-5 shrink-0 text-primary" />
+                  <span className="text-sm">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
         </FadeIn>
-        <FadeInStagger className="mt-12 grid gap-6 sm:grid-cols-2" stagger={0.1}>
-          {medicalServices.map((service) => (
-            <FadeInItem key={service}>
-              <Card className="h-full">
-                <CardContent className="pt-6">
-                  <div className="mb-4 flex size-10 items-center justify-center rounded-lg bg-primary/10">
-                    <Stethoscope className="size-5 text-primary" />
-                  </div>
-                  <h3 className="text-lg font-semibold">{service}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">
-                    Professional {service.toLowerCase()} provided by our experienced medical team.
-                  </p>
-                </CardContent>
-              </Card>
-            </FadeInItem>
-          ))}
-        </FadeInStagger>
       </Section>
 
       <QuoteCTA />

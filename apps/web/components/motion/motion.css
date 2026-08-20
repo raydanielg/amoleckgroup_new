@@ -1,0 +1,652 @@
+/* ============================================================================
+   AMOLECK MOTION ENGINE  —  zero-dependency animation layer
+   ----------------------------------------------------------------------------
+   Palette-safe: every effect derives its colour from `currentColor` or from
+   `--mo-accent`, which you may override anywhere. No brand colours are
+   hard-coded, so your existing theme is untouched.
+
+   Import once, e.g. at the top of app/globals.css:
+       @import "../components/motion/motion.css";
+   ...or in app/layout.tsx:
+       import "@/components/motion/motion.css";
+   ========================================================================== */
+
+:root {
+  /* Every animated accent resolves through this. Defaults to the inherited
+     text colour so nothing changes visually until you opt in. */
+  --mo-accent: currentColor;
+  --mo-accent-soft: color-mix(in oklab, currentColor 18%, transparent);
+  --mo-accent-faint: color-mix(in oklab, currentColor 8%, transparent);
+
+  /* Global timing scale — bump to 1.4 for a slower, more cinematic site. */
+  --mo-speed: 1;
+  --mo-ease: cubic-bezier(0.22, 1, 0.36, 1); /* expo-out: the workhorse   */
+  --mo-ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
+  --mo-ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1); /* slight overshoot */
+
+  --mo-dur-fast: calc(220ms * var(--mo-speed));
+  --mo-dur: calc(620ms * var(--mo-speed));
+  --mo-dur-slow: calc(1100ms * var(--mo-speed));
+}
+
+/* ---------------------------------------------------------------------------
+   1. SCROLL REVEAL
+   The <Reveal> component sets data-mo-reveal + inline custom properties, then
+   flips data-mo-in="true" when the element enters the viewport.
+   ------------------------------------------------------------------------ */
+
+[data-mo-reveal] {
+  opacity: 0;
+  will-change: transform, opacity, filter;
+  transition:
+    opacity var(--mo-d, var(--mo-dur)) var(--mo-ease) var(--mo-delay, 0ms),
+    transform var(--mo-d, var(--mo-dur)) var(--mo-ease) var(--mo-delay, 0ms),
+    filter var(--mo-d, var(--mo-dur)) var(--mo-ease) var(--mo-delay, 0ms);
+  transform: translate3d(var(--mo-x, 0), var(--mo-y, 0), 0)
+    scale(var(--mo-s, 1)) rotate(var(--mo-r, 0deg));
+  filter: blur(var(--mo-blur, 0px));
+}
+
+[data-mo-reveal][data-mo-in="true"] {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+  filter: blur(0px);
+}
+
+/* Once the reveal has played, drop the compositor hint. */
+[data-mo-reveal][data-mo-done="true"] {
+  will-change: auto;
+}
+
+/* ---------------------------------------------------------------------------
+   2. KEYFRAMES
+   ------------------------------------------------------------------------ */
+
+@keyframes mo-float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(var(--mo-float-distance, -14px))
+      rotate(var(--mo-float-tilt, 0deg));
+  }
+}
+
+@keyframes mo-float-x {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(var(--mo-float-distance, 14px));
+  }
+}
+
+@keyframes mo-pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 var(--mo-accent-soft);
+  }
+  50% {
+    box-shadow: 0 0 28px 6px var(--mo-accent-soft);
+  }
+}
+
+@keyframes mo-pulse-ring {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.7;
+  }
+  70% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+@keyframes mo-shimmer {
+  0% {
+    background-position: -180% 0;
+  }
+  100% {
+    background-position: 180% 0;
+  }
+}
+
+@keyframes mo-gradient-pan {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes mo-spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes mo-border-sweep {
+  to {
+    --mo-angle: 360deg;
+  }
+}
+
+@keyframes mo-marquee-x {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes mo-marquee-x-reverse {
+  from {
+    transform: translate3d(-50%, 0, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes mo-marquee-y {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(0, -50%, 0);
+  }
+}
+
+@keyframes mo-ripple-out {
+  from {
+    transform: scale(0);
+    opacity: 0.45;
+  }
+  to {
+    transform: scale(2.6);
+    opacity: 0;
+  }
+}
+
+@keyframes mo-blob-drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  33% {
+    transform: translate3d(4%, -6%, 0) scale(1.12);
+  }
+  66% {
+    transform: translate3d(-5%, 4%, 0) scale(0.94);
+  }
+}
+
+@keyframes mo-beam-fall {
+  0% {
+    transform: translateY(-120%);
+    opacity: 0;
+  }
+  12% {
+    opacity: 1;
+  }
+  88% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(220%);
+    opacity: 0;
+  }
+}
+
+@keyframes mo-grid-drift {
+  to {
+    background-position:
+      var(--mo-grid-size, 44px) var(--mo-grid-size, 44px),
+      var(--mo-grid-size, 44px) var(--mo-grid-size, 44px);
+  }
+}
+
+@keyframes mo-caret {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes mo-bar-indeterminate {
+  0% {
+    transform: translateX(-100%) scaleX(0.4);
+  }
+  50% {
+    transform: translateX(0%) scaleX(0.7);
+  }
+  100% {
+    transform: translateX(100%) scaleX(0.4);
+  }
+}
+
+@keyframes mo-pop-in {
+  0% {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes mo-bounce-soft {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-25%);
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   3. AMBIENT / IDLE UTILITIES
+   ------------------------------------------------------------------------ */
+
+.mo-float {
+  animation: mo-float var(--mo-float-dur, 6s) var(--mo-ease-soft) infinite;
+}
+.mo-float-x {
+  animation: mo-float-x var(--mo-float-dur, 7s) var(--mo-ease-soft) infinite;
+}
+.mo-float-slow {
+  --mo-float-dur: 10s;
+  --mo-float-distance: -22px;
+  animation: mo-float var(--mo-float-dur) var(--mo-ease-soft) infinite;
+}
+.mo-spin-slow {
+  animation: mo-spin-slow var(--mo-spin-dur, 26s) linear infinite;
+}
+.mo-glow-pulse {
+  animation: mo-pulse-glow var(--mo-glow-dur, 3.2s) var(--mo-ease-soft) infinite;
+}
+.mo-pop-in {
+  animation: mo-pop-in var(--mo-dur-fast) var(--mo-ease-spring) both;
+}
+.mo-bounce-soft {
+  animation: mo-bounce-soft 1.6s var(--mo-ease-soft) infinite;
+}
+
+/* Delay helpers, useful for hand-staggering a small group. */
+.mo-d-1 {
+  animation-delay: 0.1s;
+}
+.mo-d-2 {
+  animation-delay: 0.2s;
+}
+.mo-d-3 {
+  animation-delay: 0.35s;
+}
+.mo-d-4 {
+  animation-delay: 0.5s;
+}
+.mo-d-5 {
+  animation-delay: 0.7s;
+}
+
+/* A live "we're online" dot — pairs well with contact / support badges. */
+.mo-live-dot {
+  position: relative;
+  display: inline-block;
+  width: 0.55em;
+  height: 0.55em;
+  border-radius: 999px;
+  background: var(--mo-accent);
+}
+.mo-live-dot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: inherit;
+  animation: mo-pulse-ring 2s var(--mo-ease-soft) infinite;
+}
+
+/* ---------------------------------------------------------------------------
+   4. HOVER INTERACTIONS
+   ------------------------------------------------------------------------ */
+
+.mo-lift {
+  transition:
+    transform var(--mo-dur-fast) var(--mo-ease-spring),
+    box-shadow var(--mo-dur-fast) var(--mo-ease-soft),
+    border-color var(--mo-dur-fast) var(--mo-ease-soft);
+  will-change: transform;
+}
+.mo-lift:hover {
+  transform: translateY(var(--mo-lift, -6px));
+  box-shadow: 0 18px 40px -18px var(--mo-accent-soft);
+}
+.mo-lift:active {
+  transform: translateY(calc(var(--mo-lift, -6px) / 2.5));
+}
+
+.mo-press {
+  transition: transform 140ms var(--mo-ease-spring);
+}
+.mo-press:active {
+  transform: scale(0.96);
+}
+
+.mo-zoom-media {
+  overflow: hidden;
+}
+.mo-zoom-media img,
+.mo-zoom-media video,
+.mo-zoom-media [data-mo-zoom-target] {
+  transition: transform var(--mo-dur-slow) var(--mo-ease);
+  will-change: transform;
+}
+.mo-zoom-media:hover img,
+.mo-zoom-media:hover video,
+.mo-zoom-media:hover [data-mo-zoom-target] {
+  transform: scale(var(--mo-zoom, 1.07));
+}
+
+/* Animated underline for nav links and inline anchors. */
+.mo-underline {
+  position: relative;
+  text-decoration: none;
+}
+.mo-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.15em;
+  height: 2px;
+  width: 100%;
+  border-radius: 2px;
+  background: var(--mo-accent);
+  transform: scaleX(var(--mo-underline-scale, 0));
+  transform-origin: right center;
+  transition: transform var(--mo-dur-fast) var(--mo-ease);
+}
+.mo-underline:hover::after,
+.mo-underline[data-active="true"]::after {
+  --mo-underline-scale: 1;
+  transform-origin: left center;
+}
+
+/* Icon that slides on hover — e.g. a "Learn more →" arrow. */
+.mo-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.mo-arrow [data-mo-arrow] {
+  transition: transform var(--mo-dur-fast) var(--mo-ease-spring);
+}
+.mo-arrow:hover [data-mo-arrow] {
+  transform: translateX(0.28em);
+}
+
+/* Border that sweeps a highlight around the element on hover. */
+@property --mo-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+.mo-sweep-border {
+  position: relative;
+  isolation: isolate;
+}
+.mo-sweep-border::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: conic-gradient(
+    from var(--mo-angle),
+    transparent 0deg,
+    var(--mo-accent) 60deg,
+    transparent 130deg,
+    transparent 360deg
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity var(--mo-dur-fast) var(--mo-ease-soft);
+  animation: mo-border-sweep var(--mo-sweep-dur, 3s) linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+.mo-sweep-border:hover::before,
+.mo-sweep-border[data-mo-always="true"]::before {
+  opacity: 1;
+}
+
+/* ---------------------------------------------------------------------------
+   5. TEXT EFFECTS
+   ------------------------------------------------------------------------ */
+
+/* A highlight sweep that travels across text — reads as "premium" without
+   changing the underlying text colour on unsupported browsers. */
+.mo-shine {
+  background: linear-gradient(
+    100deg,
+    currentColor 0%,
+    currentColor 38%,
+    var(--mo-shine-hot, color-mix(in oklab, currentColor 35%, white)) 50%,
+    currentColor 62%,
+    currentColor 100%
+  );
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: mo-shimmer var(--mo-shine-dur, 4.5s) linear infinite;
+}
+
+/* Gradient text that slowly pans. Set --mo-grad-a / --mo-grad-b to your own
+   brand colours; defaults stay inside the current colour so nothing shifts. */
+.mo-gradient-text {
+  background-image: linear-gradient(
+    100deg,
+    var(--mo-grad-a, currentColor),
+    var(--mo-grad-b, var(--mo-accent)),
+    var(--mo-grad-a, currentColor)
+  );
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: mo-gradient-pan var(--mo-grad-dur, 8s) var(--mo-ease-soft) infinite;
+}
+
+.mo-caret::after {
+  content: "";
+  display: inline-block;
+  width: 0.08em;
+  height: 1.05em;
+  margin-left: 0.06em;
+  vertical-align: -0.14em;
+  background: currentColor;
+  animation: mo-caret 1s step-end infinite;
+}
+
+/* Per-word / per-char reveal driven by <TextReveal>. */
+.mo-word,
+.mo-char {
+  display: inline-block;
+  opacity: 0;
+  transform: translate3d(0, var(--mo-word-y, 0.72em), 0)
+    rotate(var(--mo-word-r, 0deg));
+  transition:
+    opacity var(--mo-word-dur, 700ms) var(--mo-ease) var(--mo-delay, 0ms),
+    transform var(--mo-word-dur, 700ms) var(--mo-ease) var(--mo-delay, 0ms);
+  will-change: transform, opacity;
+}
+[data-mo-in="true"] .mo-word,
+[data-mo-in="true"] .mo-char {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) rotate(0deg);
+}
+/* Words need a clipping parent so they rise out of nowhere. */
+.mo-word-clip {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  padding-bottom: 0.06em;
+}
+
+/* ---------------------------------------------------------------------------
+   6. SURFACES
+   ------------------------------------------------------------------------ */
+
+.mo-glass {
+  background: color-mix(in oklab, canvas 62%, transparent);
+  backdrop-filter: blur(14px) saturate(1.5);
+  -webkit-backdrop-filter: blur(14px) saturate(1.5);
+}
+
+.mo-shimmer-surface {
+  position: relative;
+  overflow: hidden;
+}
+.mo-shimmer-surface::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    100deg,
+    transparent 35%,
+    var(--mo-accent-faint) 50%,
+    transparent 65%
+  );
+  background-size: 220% 100%;
+  animation: mo-shimmer var(--mo-shimmer-dur, 2.4s) linear infinite;
+  pointer-events: none;
+}
+
+/* Spotlight that follows the pointer — <SpotlightCard> feeds --mo-mx/--mo-my. */
+.mo-spotlight {
+  position: relative;
+  isolation: isolate;
+}
+.mo-spotlight::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    var(--mo-spot-size, 320px) circle at var(--mo-mx, 50%) var(--mo-my, 50%),
+    var(--mo-accent-soft),
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity var(--mo-dur-fast) var(--mo-ease-soft);
+  pointer-events: none;
+  z-index: 0;
+}
+.mo-spotlight:hover::before {
+  opacity: 1;
+}
+
+/* Ripple, injected by <RippleButton> / withRipple. */
+.mo-ripple {
+  position: absolute;
+  border-radius: 999px;
+  background: currentColor;
+  pointer-events: none;
+  animation: mo-ripple-out 620ms var(--mo-ease) forwards;
+}
+
+/* ---------------------------------------------------------------------------
+   7. SECTION DIVIDERS
+   ------------------------------------------------------------------------ */
+
+.mo-divider {
+  height: 1px;
+  border: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--mo-accent-soft),
+    transparent
+  );
+  background-size: 220% 100%;
+  animation: mo-gradient-pan var(--mo-divider-dur, 7s) var(--mo-ease-soft)
+    infinite;
+}
+
+/* ---------------------------------------------------------------------------
+   8. PAGE TRANSITIONS
+   ------------------------------------------------------------------------ */
+
+[data-mo-page] {
+  animation: mo-page-enter var(--mo-page-dur, 520ms) var(--mo-ease) both;
+}
+
+@keyframes mo-page-enter {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 14px, 0) scale(0.995);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: blur(0);
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   9. ACCESSIBILITY
+   Everything above collapses to a plain, instant, fully legible page for
+   anyone who has asked their OS to reduce motion.
+   ------------------------------------------------------------------------ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  [data-mo-reveal],
+  .mo-word,
+  .mo-char {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+
+  .mo-shine,
+  .mo-gradient-text {
+    background: none;
+    -webkit-background-clip: border-box;
+    background-clip: border-box;
+    color: inherit;
+  }
+}

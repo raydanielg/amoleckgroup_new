@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import { ArrowRight, HeartPulse, Stethoscope, Activity, Code2, Target, Eye, MapPin } from "lucide-react"
+import { ArrowRight, HeartPulse, Stethoscope, Activity, Code2, Target, Eye, MapPin, CheckCircle2 } from "lucide-react"
 import { buttonVariants } from "@workspace/ui/components/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@workspace/ui/components/card"
 import { Badge } from "@workspace/ui/components/badge"
@@ -11,8 +11,8 @@ import { QuoteCTA } from "@/components/quote-cta"
 import { services, siteConfig } from "@/lib/data"
 
 export const metadata: Metadata = {
-  title: "About Us",
-  description: "Learn about Amoleck Group Company Ltd — a Tanzanian company delivering innovative healthcare, medical, physiotherapy and technology solutions.",
+  title: "About Amoleck Group — Who We Are",
+  description: "Amoleck Group has supplied and serviced medical equipment in Kenya. Meet the team, our standards, and how we work.",
 }
 
 const serviceIcons: Record<string, typeof HeartPulse> = {
@@ -22,6 +22,21 @@ const serviceIcons: Record<string, typeof HeartPulse> = {
   code: Code2,
 }
 
+const beliefs = [
+  {
+    title: "Specification before sales",
+    description: "The right equipment for your ward is often not the most expensive one. We will tell you when to spend less.",
+  },
+  {
+    title: "Local capability matters",
+    description: "Imported equipment with no local technician is a machine with an expiry date.",
+  },
+  {
+    title: "Training is part of the product",
+    description: "Equipment your staff are afraid to touch is equipment you didn't buy.",
+  },
+]
+
 export default function AboutPage() {
   return (
     <>
@@ -30,11 +45,8 @@ export default function AboutPage() {
           <FadeIn>
             <Badge variant="secondary" className="mb-4">About Us</Badge>
             <h1 className="max-w-3xl text-4xl font-bold tracking-tight lg:text-5xl">
-              Who We Are
+              We supply equipment we&apos;re willing to be called about at 2am.
             </h1>
-            <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
-              Amoleck Group Company Ltd is a Tanzanian company committed to delivering innovative healthcare, medical, physiotherapy and technology solutions. We serve clinics, hospitals, organizations, and individuals across Tanzania and beyond.
-            </p>
           </FadeIn>
         </div>
       </section>
@@ -50,35 +62,49 @@ export default function AboutPage() {
               />
             </div>
           </FadeIn>
-          <FadeIn delay={0.15} className="flex flex-col justify-center gap-6">
-            <div>
-              <div className="mb-4 flex size-12 items-center justify-center rounded-xl bg-primary/10">
-                <Target className="size-6 text-primary" />
-              </div>
-              <h2 className="text-2xl font-bold">Our Mission</h2>
-              <p className="mt-2 text-muted-foreground">
-                To deliver innovative healthcare and technology solutions that improve lives, transform healthcare delivery, and empower organizations to achieve excellence.
-              </p>
-            </div>
-            <div>
-              <div className="mb-4 flex size-12 items-center justify-center rounded-xl bg-primary/10">
-                <Eye className="size-6 text-primary" />
-              </div>
-              <h2 className="text-2xl font-bold">Our Vision</h2>
-              <p className="mt-2 text-muted-foreground">
-                To be the leading provider of integrated healthcare, medical equipment, and technology solutions in Tanzania and East Africa.
-              </p>
-            </div>
+          <FadeIn delay={0.15} className="flex flex-col justify-center gap-4">
+            <p className="text-lg text-muted-foreground">
+              Amoleck Group has supplied and serviced medical equipment in Kenya since [YEAR]. We started because facilities kept telling us the same story: the machine arrived, nobody installed it properly, and when it broke the supplier had moved on.
+            </p>
+            <p className="text-lg text-muted-foreground">
+              So we built the company around the part everyone else treats as an afterthought — what happens after delivery.
+            </p>
           </FadeIn>
         </div>
       </Section>
 
+      {/* What We Believe */}
       <Section className="bg-muted/30">
         <FadeIn>
           <SectionHeader
+            eyebrow="What we believe"
+            title="Three principles we won't bend on."
+          />
+        </FadeIn>
+        <FadeInStagger className="mt-12 grid gap-6 md:grid-cols-3" stagger={0.1}>
+          {beliefs.map((belief) => (
+            <FadeInItem key={belief.title}>
+              <Card className="h-full">
+                <CardContent className="pt-6">
+                  <div className="mb-4 flex size-10 items-center justify-center rounded-lg bg-primary/10">
+                    <CheckCircle2 className="size-5 text-primary" />
+                  </div>
+                  <h3 className="text-lg font-semibold">{belief.title}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground">{belief.description}</p>
+                </CardContent>
+              </Card>
+            </FadeInItem>
+          ))}
+        </FadeInStagger>
+      </Section>
+
+      {/* What We Do */}
+      <Section>
+        <FadeIn>
+          <SectionHeader
             eyebrow="Our Divisions"
-            title="What We Do"
-            description="Four core divisions delivering comprehensive solutions to our clients."
+            title="Four services, one accountable supplier."
+            description="You can take one of these or all four. What you cannot do is end up with three vendors blaming each other while a theatre sits idle."
           />
         </FadeIn>
         <FadeInStagger className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4" stagger={0.1}>
@@ -110,15 +136,16 @@ export default function AboutPage() {
         </FadeInStagger>
       </Section>
 
-      <Section>
+      {/* Coverage */}
+      <Section className="bg-muted/30">
         <FadeIn>
           <div className="rounded-2xl border border-border/40 p-8 lg:p-12">
             <div className="flex items-start gap-4">
               <MapPin className="mt-1 size-6 shrink-0 text-primary" />
               <div>
-                <h2 className="text-2xl font-bold">Based in {siteConfig.location}</h2>
+                <h2 className="text-2xl font-bold">Coverage</h2>
                 <p className="mt-2 text-muted-foreground">
-                  We are proudly based in Dar es Salaam, Tanzania, serving clients across the country and the East African region. Our local presence ensures we understand the unique healthcare and technology needs of our communities.
+                  Head office in [CITY], with technicians covering [REGIONS]. Emergency callout available nationwide.
                 </p>
               </div>
             </div>

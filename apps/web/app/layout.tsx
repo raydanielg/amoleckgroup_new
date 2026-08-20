@@ -17,31 +17,31 @@ const fontMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: `${siteConfig.name} — ${siteConfig.tagline}`,
-    template: `%s — ${siteConfig.name}`,
+    default: "Amoleck Group — Medical Equipment & Healthcare Technology in Kenya",
+    template: "%s — Amoleck Group",
   },
   description: siteConfig.description,
   keywords: [
-    "Amoleck",
-    "healthcare Tanzania",
-    "physiotherapy Dar es Salaam",
-    "medical equipment Tanzania",
-    "healthcare technology",
-    "rehabilitation equipment",
     "Amoleck Group",
+    "medical equipment Kenya",
+    "physiotherapy equipment Kenya",
+    "diagnostic equipment",
+    "hospital equipment supply",
+    "biomedical servicing",
+    "medical equipment installation",
   ],
   authors: [{ name: siteConfig.name }],
   openGraph: {
-    title: `${siteConfig.name} — ${siteConfig.tagline}`,
+    title: "Amoleck Group — Medical Equipment & Healthcare Technology in Kenya",
     description: siteConfig.description,
     url: "https://amoleck.co.tz",
     siteName: siteConfig.name,
-    locale: "en_US",
+    locale: "en_KE",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.name} — ${siteConfig.tagline}`,
+    title: "Amoleck Group — Medical Equipment & Healthcare Technology in Kenya",
     description: siteConfig.description,
   },
   robots: {

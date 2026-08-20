@@ -12,8 +12,8 @@ import { QuoteCTA } from "@/components/quote-cta"
 import { equipmentCategories } from "@/lib/data"
 
 export const metadata: Metadata = {
-  title: "Medical Equipment",
-  description: "Browse Amoleck's catalog of medical, physiotherapy, rehabilitation, diagnostic, and wellness equipment. Request a quote for the equipment you need.",
+  title: "Equipment Catalogue — Amoleck Group",
+  description: "Browse diagnostic, therapy, mobility and clinical equipment available for supply and installation in Kenya.",
 }
 
 export default function EquipmentPage() {
@@ -27,16 +27,16 @@ export default function EquipmentPage() {
               Medical Equipment
             </Badge>
             <h1 className="max-w-3xl text-4xl font-bold tracking-tight lg:text-5xl">
-              Medical Equipment
+              Equipment catalogue
             </h1>
             <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
-              Explore modern medical and physiotherapy equipment supplied by Amoleck Group. Request a quote for any product and our team will get back to you promptly.
+              A selection of what we supply. Not everything is listed — if you don&apos;t see it, ask. We source across diagnostic, therapy, surgical, ward and laboratory categories.
             </p>
             <Link
               href="/request-quote"
               className={cn(buttonVariants({ size: "lg" }), "mt-8")}
             >
-              Browse Equipment &amp; Request Quote
+              Request a quote
               <ArrowRight className="size-4" />
             </Link>
           </FadeIn>
@@ -86,7 +86,7 @@ export default function EquipmentPage() {
                         href="/request-quote"
                         className={cn(buttonVariants({ variant: "outline", size: "sm" }), "mt-4 w-full")}
                       >
-                        Request Quote
+                        Request price
                         <ArrowRight className="size-4" />
                       </Link>
                     </CardContent>

@@ -11,7 +11,7 @@ import { RadioGroup, RadioGroupItem } from "@workspace/ui/components/radio-group
 import { Badge } from "@workspace/ui/components/badge"
 import { Section } from "@/components/section"
 import { FadeIn } from "@/components/animations"
-import { quoteOptions } from "@/lib/data"
+import { quoteOptions, facilityTypes } from "@/lib/data"
 
 export default function RequestQuotePage() {
   const [submitted, setSubmitted] = useState(false)
@@ -28,10 +28,10 @@ export default function RequestQuotePage() {
           <FadeIn>
             <Badge variant="secondary" className="mb-4">Request a Quote</Badge>
             <h1 className="text-4xl font-bold tracking-tight lg:text-5xl">
-              Request a Quote
+              Get a written quote.
             </h1>
             <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
-              Tell us what you need and our team will prepare a detailed quotation for you. We typically respond within 24 hours.
+              Specification, price, lead time and warranty terms — in one document. Tell us what you need below and we&apos;ll come back within one working day.
             </p>
           </FadeIn>
         </div>
@@ -48,7 +48,7 @@ export default function RequestQuotePage() {
                   </div>
                   <h2 className="text-2xl font-bold">Thank You!</h2>
                   <p className="mt-4 text-muted-foreground">
-                    Your quotation request has been received. Our team will contact you shortly.
+                    Received. You&apos;ll have a written quote within one working day.
                   </p>
                   <Button
                     className="mt-8"
@@ -66,7 +66,7 @@ export default function RequestQuotePage() {
                 <CardHeader>
                   <CardTitle>Request a Quote</CardTitle>
                   <CardDescription>
-                    Fill out the form below and we&apos;ll get back to you with a quotation.
+                    Fill out the form below and we&apos;ll come back with a written quote.
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -85,7 +85,41 @@ export default function RequestQuotePage() {
 
                     <div className="grid gap-4 sm:grid-cols-2">
                       <div className="flex flex-col gap-2">
-                        <Label htmlFor="product">Product / Service</Label>
+                        <Label htmlFor="name">Name</Label>
+                        <Input id="name" placeholder="John Doe" required />
+                      </div>
+                      <div className="flex flex-col gap-2">
+                        <Label htmlFor="facility">Facility</Label>
+                        <Input id="facility" placeholder="Your facility" />
+                      </div>
+                    </div>
+
+                    <div className="grid gap-4 sm:grid-cols-2">
+                      <div className="flex flex-col gap-2">
+                        <Label htmlFor="email">Email</Label>
+                        <Input id="email" type="email" placeholder="you@example.com" required />
+                      </div>
+                      <div className="flex flex-col gap-2">
+                        <Label htmlFor="phone">Phone</Label>
+                        <Input id="phone" type="tel" placeholder="+255 7XX XXX XXX" required />
+                      </div>
+                    </div>
+
+                    <div className="flex flex-col gap-2">
+                      <Label>Type of facility</Label>
+                      <RadioGroup defaultValue="Hospital">
+                        {facilityTypes.map((type) => (
+                          <div key={type} className="flex items-center gap-2">
+                            <RadioGroupItem value={type} id={`facility-type-${type}`} />
+                            <Label htmlFor={`facility-type-${type}`} className="font-normal">{type}</Label>
+                          </div>
+                        ))}
+                      </RadioGroup>
+                    </div>
+
+                    <div className="grid gap-4 sm:grid-cols-2">
+                      <div className="flex flex-col gap-2">
+                        <Label htmlFor="product">What equipment or service</Label>
                         <Input id="product" placeholder="e.g. Digital Patient Monitor" />
                       </div>
                       <div className="flex flex-col gap-2">
@@ -94,46 +128,33 @@ export default function RequestQuotePage() {
                       </div>
                     </div>
 
+                    <div className="grid gap-4 sm:grid-cols-2">
+                      <div className="flex flex-col gap-2">
+                        <Label htmlFor="budget">Budget range (optional)</Label>
+                        <Input id="budget" placeholder="e.g. KES 500,000 - 1,000,000" />
+                      </div>
+                      <div className="flex flex-col gap-2">
+                        <Label htmlFor="timeline">Target timeline</Label>
+                        <Input id="timeline" placeholder="e.g. Within 3 months" />
+                      </div>
+                    </div>
+
                     <div className="flex flex-col gap-2">
-                      <Label htmlFor="details">Tell us more</Label>
+                      <Label htmlFor="notes">Notes</Label>
                       <Textarea
-                        id="details"
-                        placeholder="Provide any additional details about your request..."
+                        id="notes"
+                        placeholder="Any additional details about your request..."
                         rows={4}
                       />
                     </div>
 
-                    <div className="grid gap-4 sm:grid-cols-2">
-                      <div className="flex flex-col gap-2">
-                        <Label htmlFor="name">Full Name</Label>
-                        <Input id="name" placeholder="John Doe" required />
-                      </div>
-                      <div className="flex flex-col gap-2">
-                        <Label htmlFor="company">Company / Organization</Label>
-                        <Input id="company" placeholder="Your organization" />
-                      </div>
-                    </div>
-
-                    <div className="grid gap-4 sm:grid-cols-2">
-                      <div className="flex flex-col gap-2">
-                        <Label htmlFor="phone">Phone Number</Label>
-                        <Input id="phone" type="tel" placeholder="+255 7XX XXX XXX" required />
-                      </div>
-                      <div className="flex flex-col gap-2">
-                        <Label htmlFor="email">Email</Label>
-                        <Input id="email" type="email" placeholder="you@example.com" required />
-                      </div>
-                    </div>
-
-                    <div className="flex flex-col gap-2">
-                      <Label htmlFor="location">Location</Label>
-                      <Input id="location" placeholder="Dar es Salaam, Tanzania" />
-                    </div>
-
                     <Button type="submit" size="lg" className="w-full">
                       <Send className="size-4" />
-                      Submit Request
+                      Send my request
                     </Button>
+                    <p className="text-center text-sm text-muted-foreground">
+                      No obligation, no sales call. If we&apos;re not the right supplier for it, we&apos;ll say so.
+                    </p>
                   </form>
                 </CardContent>
               </Card>

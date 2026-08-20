@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import { ArrowRight, Code2, Smartphone, Globe, Cpu, Server, Briefcase } from "lucide-react"
+import { ArrowRight, Code2, Cpu, Briefcase, Smartphone, Globe, Server, CheckCircle2 } from "lucide-react"
 import { buttonVariants } from "@workspace/ui/components/button"
 import { Card, CardContent } from "@workspace/ui/components/card"
 import { Badge } from "@workspace/ui/components/badge"
@@ -11,11 +11,19 @@ import { QuoteCTA } from "@/components/quote-cta"
 import { technologyCards } from "@/lib/data"
 
 export const metadata: Metadata = {
-  title: "Technology Solutions",
-  description: "Software development, digital healthcare solutions, IT consulting, and business technology solutions by Amoleck Group.",
+  title: "Healthcare Technology — Amoleck Group",
+  description: "Clinical systems, diagnostic integration and technical support that keeps your equipment talking to each other.",
 }
 
 const techIcons: typeof Code2[] = [Code2, Cpu, Briefcase, Smartphone, Globe, Server]
+
+const whereWeHelp = [
+  "Equipment integration",
+  "Diagnostic data handling",
+  "Systems configuration",
+  "Staff onboarding",
+  "Ongoing technical support",
+]
 
 export default function ServiceTechnologyPage() {
   return (
@@ -23,18 +31,18 @@ export default function ServiceTechnologyPage() {
       <section className="relative overflow-hidden border-b border-border/40 bg-foreground text-background">
         <div className="mx-auto max-w-7xl px-4 py-16 lg:px-8 lg:py-24">
           <FadeIn>
-            <Badge variant="secondary" className="mb-4">Technology Solutions</Badge>
+            <Badge variant="secondary" className="mb-4">Healthcare Technology</Badge>
             <h1 className="max-w-3xl text-4xl font-bold tracking-tight lg:text-5xl">
-              Technology Solutions
+              Technology that talks to the equipment you already own.
             </h1>
             <p className="mt-6 max-w-2xl text-lg text-background/70">
-              Software development, digital healthcare solutions, IT consulting, and business technology solutions designed to drive your organization forward.
+              Clinical systems, diagnostic integration and technical support. We configure around your existing estate rather than asking you to replace it.
             </p>
             <Link
-              href="/technology"
+              href="/request-quote"
               className={cn(buttonVariants({ variant: "secondary", size: "lg" }), "mt-8")}
             >
-              Explore Technology
+              Request a quote
               <ArrowRight className="size-4" />
             </Link>
           </FadeIn>
@@ -43,10 +51,25 @@ export default function ServiceTechnologyPage() {
 
       <Section>
         <FadeIn>
+          <div className="mx-auto max-w-3xl">
+            <h2 className="text-2xl font-bold">Where we help</h2>
+            <div className="mt-6 grid gap-3 sm:grid-cols-2">
+              {whereWeHelp.map((item) => (
+                <div key={item} className="flex items-center gap-3 rounded-lg border border-border/40 p-4">
+                  <CheckCircle2 className="size-5 shrink-0 text-primary" />
+                  <span className="text-sm">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </FadeIn>
+      </Section>
+
+      <Section className="bg-muted/30">
+        <FadeIn>
           <SectionHeader
-            eyebrow="Our Services"
-            title="What We Build"
-            description="From custom software to healthcare systems, we deliver technology that drives results."
+            eyebrow="What we build"
+            title="Our technology services"
           />
         </FadeIn>
         <FadeInStagger className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3" stagger={0.1}>

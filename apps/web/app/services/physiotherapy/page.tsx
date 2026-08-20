@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import { ArrowRight, CheckCircle2, Calendar } from "lucide-react"
+import { ArrowRight, CheckCircle2 } from "lucide-react"
 import { buttonVariants } from "@workspace/ui/components/button"
 import { Card, CardContent } from "@workspace/ui/components/card"
 import { Badge } from "@workspace/ui/components/badge"
@@ -8,12 +8,20 @@ import { cn } from "@workspace/ui/lib/utils"
 import { Section, SectionHeader } from "@/components/section"
 import { FadeIn, FadeInStagger, FadeInItem } from "@/components/animations"
 import { QuoteCTA } from "@/components/quote-cta"
-import { physiotherapyServices } from "@/lib/data"
 
 export const metadata: Metadata = {
-  title: "Physiotherapy Services",
-  description: "Professional physiotherapy assessment, rehabilitation, pain management, and sports rehabilitation at Amoleck Group.",
+  title: "Physiotherapy Solutions — Amoleck Group",
+  description: "Rehabilitation equipment, clinic setup and practitioner training for physiotherapy practices in Kenya.",
 }
+
+const clinicPackage = [
+  "Treatment couches",
+  "Electrotherapy (TENS, ultrasound, shortwave)",
+  "Exercise & gym equipment",
+  "Gait and mobility aids",
+  "Assessment tools",
+  "Consumables supply",
+]
 
 export default function ServicePhysiotherapyPage() {
   return (
@@ -23,19 +31,19 @@ export default function ServicePhysiotherapyPage() {
         <div className="mx-auto max-w-7xl px-4 py-16 lg:px-8 lg:py-24">
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <FadeIn>
-              <Badge variant="secondary" className="mb-4">Physiotherapy</Badge>
+              <Badge variant="secondary" className="mb-4">Physiotherapy Solutions</Badge>
               <h1 className="text-4xl font-bold tracking-tight lg:text-5xl">
-                Physiotherapy Services
+                Complete rehabilitation setups, ready to treat.
               </h1>
               <p className="mt-6 max-w-xl text-lg text-muted-foreground">
-                Professional physiotherapy assessment, rehabilitation, pain management, and sports rehabilitation services tailored to your needs.
+                Therapy tables, electrotherapy units, exercise equipment, mobility aids and assessment tools — plus the training your practitioners need to use them from day one.
               </p>
               <Link
                 href="/physiotherapy"
                 className={cn(buttonVariants({ size: "lg" }), "mt-8")}
               >
-                <Calendar className="size-4" />
-                Book an Appointment
+                Browse physiotherapy equipment
+                <ArrowRight className="size-4" />
               </Link>
             </FadeIn>
             <FadeIn delay={0.2}>
@@ -53,26 +61,18 @@ export default function ServicePhysiotherapyPage() {
 
       <Section>
         <FadeIn>
-          <SectionHeader
-            eyebrow="Our Services"
-            title="What We Offer"
-            description="Comprehensive physiotherapy services for all ages and conditions."
-          />
+          <div className="mx-auto max-w-3xl">
+            <h2 className="text-2xl font-bold">Typical clinic package</h2>
+            <div className="mt-6 grid gap-3 sm:grid-cols-2">
+              {clinicPackage.map((item) => (
+                <div key={item} className="flex items-center gap-3 rounded-lg border border-border/40 p-4">
+                  <CheckCircle2 className="size-5 shrink-0 text-primary" />
+                  <span className="text-sm">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
         </FadeIn>
-        <FadeInStagger className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3" stagger={0.1}>
-          {physiotherapyServices.map((service) => (
-            <FadeInItem key={service}>
-              <Card className="h-full">
-                <CardContent className="pt-6">
-                  <div className="mb-4 flex size-10 items-center justify-center rounded-lg bg-primary/10">
-                    <CheckCircle2 className="size-5 text-primary" />
-                  </div>
-                  <h3 className="text-lg font-semibold">{service}</h3>
-                </CardContent>
-              </Card>
-            </FadeInItem>
-          ))}
-        </FadeInStagger>
       </Section>
 
       <QuoteCTA />

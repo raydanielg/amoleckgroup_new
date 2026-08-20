@@ -11,8 +11,8 @@ import { QuoteCTA } from "@/components/quote-cta"
 import { services } from "@/lib/data"
 
 export const metadata: Metadata = {
-  title: "Our Services",
-  description: "Explore Amoleck's comprehensive healthcare and technology services including physiotherapy, medical services, medical equipment, and technology solutions.",
+  title: "Our Services — Amoleck Group",
+  description: "Equipment supply, physiotherapy solutions, healthcare technology and biomedical servicing, under one contract.",
 }
 
 const serviceIcons: Record<string, typeof HeartPulse> = {
@@ -30,10 +30,10 @@ export default function ServicesPage() {
           <FadeIn>
             <Badge variant="secondary" className="mb-4">Services</Badge>
             <h1 className="max-w-3xl text-4xl font-bold tracking-tight lg:text-5xl">
-              Our Services
+              Four services. One accountable supplier.
             </h1>
             <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
-              Comprehensive healthcare and technology solutions designed to improve lives and transform healthcare delivery.
+              You can take one of these or all four. What you cannot do is end up with three vendors blaming each other while a theatre sits idle.
             </p>
           </FadeIn>
         </div>

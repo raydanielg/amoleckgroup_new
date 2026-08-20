@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import { ArrowRight, CheckCircle2, Calendar } from "lucide-react"
+import { ArrowRight, CheckCircle2 } from "lucide-react"
 import { buttonVariants } from "@workspace/ui/components/button"
 import { Card, CardContent } from "@workspace/ui/components/card"
 import { Badge } from "@workspace/ui/components/badge"
@@ -11,8 +11,8 @@ import { QuoteCTA } from "@/components/quote-cta"
 import { physiotherapyServices } from "@/lib/data"
 
 export const metadata: Metadata = {
-  title: "Physiotherapy & Rehabilitation",
-  description: "Professional physiotherapy and rehabilitation services at Amoleck Group. Personalized care to help you recover, move better and live better.",
+  title: "Physiotherapy Equipment — Amoleck Group",
+  description: "Therapy tables, electrotherapy, exercise and mobility equipment for rehabilitation clinics.",
 }
 
 export default function PhysiotherapyPage() {
@@ -23,19 +23,19 @@ export default function PhysiotherapyPage() {
         <div className="mx-auto max-w-7xl px-4 py-16 lg:px-8 lg:py-24">
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <FadeIn>
-              <Badge variant="secondary" className="mb-4">Physiotherapy</Badge>
+              <Badge variant="secondary" className="mb-4">Physiotherapy Equipment</Badge>
               <h1 className="text-4xl font-bold tracking-tight lg:text-5xl">
-                Professional Physiotherapy &amp; Rehabilitation
+                Everything a physiotherapy practice needs to open its doors.
               </h1>
               <p className="mt-6 max-w-xl text-lg text-muted-foreground">
-                Personalized physiotherapy care designed to help you recover, move better and live better. Our experienced physiotherapists provide evidence-based treatment tailored to your needs.
+                Whether you&apos;re setting up a single treatment room or a full rehabilitation department, we supply the equipment, install it, and train your team on it.
               </p>
               <Link
-                href="/contact"
+                href="/request-quote"
                 className={cn(buttonVariants({ size: "lg" }), "mt-8")}
               >
-                <Calendar className="size-4" />
-                Book an Appointment
+                Send us your floor plan
+                <ArrowRight className="size-4" />
               </Link>
             </FadeIn>
             <FadeIn delay={0.2}>
@@ -54,9 +54,9 @@ export default function PhysiotherapyPage() {
       <Section>
         <FadeIn>
           <SectionHeader
-            eyebrow="Our Services"
-            title="Physiotherapy Services We Offer"
-            description="Comprehensive physiotherapy services for all ages and conditions."
+            eyebrow="Sections"
+            title="What we supply"
+            description="Treatment & assessment · Electrotherapy · Exercise & rehabilitation · Mobility & support · Consumables"
           />
         </FadeIn>
         <FadeInStagger className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3" stagger={0.1}>
@@ -111,8 +111,8 @@ export default function PhysiotherapyPage() {
       </Section>
 
       <QuoteCTA
-        title="Ready to start your recovery?"
-        description="Book a physiotherapy appointment today and take the first step towards better movement and better health."
+        title="Planning a new clinic?"
+        description="Send us the floor plan and we'll specify it — equipment, layout and installation."
       />
     </>
   )

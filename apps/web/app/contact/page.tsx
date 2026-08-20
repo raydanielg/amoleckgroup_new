@@ -13,8 +13,8 @@ import { FadeIn } from "@/components/animations"
 import { siteConfig } from "@/lib/data"
 
 export const metadata: Metadata = {
-  title: "Contact Us",
-  description: "Get in touch with Amoleck Group Company Ltd. Located in Dar es Salaam, Tanzania. Call, email, or send us a message.",
+  title: "Contact Amoleck Group",
+  description: "Talk to our team about equipment, servicing or a site visit. We reply within two working hours.",
 }
 
 export default function ContactPage() {
@@ -25,10 +25,10 @@ export default function ContactPage() {
           <FadeIn>
             <Badge variant="secondary" className="mb-4">Contact</Badge>
             <h1 className="text-4xl font-bold tracking-tight lg:text-5xl">
-              Get in Touch
+              Talk to someone who knows the equipment.
             </h1>
             <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
-              Have a question or need assistance? We&apos;re here to help. Reach out to us through any of the channels below.
+              Call, email, or send the form. Enquiries received during working hours get a reply within two hours.
             </p>
           </FadeIn>
         </div>
@@ -127,26 +127,36 @@ export default function ContactPage() {
             <Card>
               <CardHeader>
                 <CardTitle>Send Us a Message</CardTitle>
+                <div className="mt-2 flex items-center gap-2 text-sm text-primary">
+                  <span className="size-2 rounded-full bg-primary" />
+                  We reply within 2 working hours
+                </div>
               </CardHeader>
               <CardContent>
                 <form className="flex flex-col gap-4">
                   <div className="grid gap-4 sm:grid-cols-2">
                     <div className="flex flex-col gap-2">
-                      <Label htmlFor="contact-name">Full Name</Label>
+                      <Label htmlFor="contact-name">Full name</Label>
                       <Input id="contact-name" placeholder="John Doe" required />
                     </div>
+                    <div className="flex flex-col gap-2">
+                      <Label htmlFor="contact-facility">Facility / organisation</Label>
+                      <Input id="contact-facility" placeholder="Your facility" />
+                    </div>
+                  </div>
+                  <div className="grid gap-4 sm:grid-cols-2">
                     <div className="flex flex-col gap-2">
                       <Label htmlFor="contact-email">Email</Label>
                       <Input id="contact-email" type="email" placeholder="you@example.com" required />
                     </div>
+                    <div className="flex flex-col gap-2">
+                      <Label htmlFor="contact-phone">Phone</Label>
+                      <Input id="contact-phone" type="tel" placeholder="+255 7XX XXX XXX" />
+                    </div>
                   </div>
                   <div className="flex flex-col gap-2">
-                    <Label htmlFor="contact-phone">Phone</Label>
-                    <Input id="contact-phone" type="tel" placeholder="+255 7XX XXX XXX" />
-                  </div>
-                  <div className="flex flex-col gap-2">
-                    <Label htmlFor="contact-subject">Subject</Label>
-                    <Input id="contact-subject" placeholder="How can we help?" />
+                    <Label htmlFor="contact-need">What do you need?</Label>
+                    <Input id="contact-need" placeholder="Equipment, servicing, site visit..." />
                   </div>
                   <div className="flex flex-col gap-2">
                     <Label htmlFor="contact-message">Message</Label>
@@ -154,7 +164,7 @@ export default function ContactPage() {
                   </div>
                   <Button type="submit" size="lg" className="w-full">
                     <Send className="size-4" />
-                    Send Message
+                    Send message
                   </Button>
                 </form>
               </CardContent>
