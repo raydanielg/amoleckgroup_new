@@ -58,7 +58,7 @@ export default function HomePage() {
               <h1 className="mt-3 text-2xl font-semibold leading-tight tracking-tight text-foreground text-balance sm:mt-5 sm:text-4xl lg:text-5xl">
                 Medical equipment that keeps working after the invoice is paid.
               </h1>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground text-pretty sm:mt-4 sm:text-base lg:text-lg">
+              <p className="mt-3 text-xs leading-relaxed text-muted-foreground text-pretty sm:mt-4 sm:text-base lg:text-lg">
                 We supply, install and service medical, diagnostic and rehabilitation equipment across Tanzania — with certified technicians, genuine warranty, and support that answers the phone.
               </p>
               <div className="mt-6 flex flex-col items-center justify-center gap-2.5 sm:mt-8 sm:flex-row sm:gap-3">
@@ -86,17 +86,17 @@ export default function HomePage() {
 
       {/* Trust Strip */}
       <section className="border-b border-border bg-muted/30 py-4 sm:py-6">
-        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-6 gap-y-2 px-4 sm:gap-x-8 sm:px-6 lg:px-8">
+        <Marquee speed={30} className="w-full">
           {tickerItems.map((item) => (
             <span
               key={item}
-              className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground"
+              className="inline-flex items-center gap-2 whitespace-nowrap text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground"
             >
               <span className="size-1 rounded-full bg-primary/60" />
               {item}
             </span>
           ))}
-        </div>
+        </Marquee>
       </section>
 
       {/* What We Do */}

@@ -69,14 +69,14 @@ export function SiteFooter() {
               <div className="flex flex-col gap-3 sm:flex-row lg:flex-col xl:flex-row">
                 <Link
                   href="/request-quote"
-                  className={cn(buttonVariants({ size: "sm" }), "rounded-md")}
+                  className={cn(buttonVariants({ size: "sm" }), "w-full rounded-md sm:w-auto")}
                 >
                   Request a quote
                   <ArrowRight className="size-4" />
                 </Link>
                 <a
                   href={`tel:${siteConfig.phone.replace(/\s/g, "")}`}
-                  className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md border border-border px-5 py-2.5 text-sm font-semibold text-foreground transition-colors hover:border-primary hover:text-primary sm:px-7 sm:py-3.5"
+                  className="inline-flex w-full items-center justify-center gap-2 whitespace-nowrap rounded-md border border-border px-5 py-2.5 text-sm font-semibold text-foreground transition-colors hover:border-primary hover:text-primary sm:w-auto sm:px-7 sm:py-3.5"
                 >
                   <Phone className="size-4" />
                   {siteConfig.phone}
@@ -104,9 +104,9 @@ export function SiteFooter() {
 
       {/* Main columns */}
       <div className="relative z-10 mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-16 lg:px-8">
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-12 lg:gap-8">
+        <div className="grid grid-cols-2 gap-6 sm:gap-8 lg:grid-cols-12 lg:gap-8">
           {/* Brand */}
-          <div className="lg:col-span-4">
+          <div className="col-span-2 lg:col-span-4">
             <RevealOnScroll>
               <Link href="/" className="inline-flex items-center gap-2.5">
                 <img
@@ -177,7 +177,7 @@ export function SiteFooter() {
           </div>
 
           {/* Contact */}
-          <div className="lg:col-span-4">
+          <div className="col-span-2 lg:col-span-4">
             <RevealOnScroll>
               <ColumnHeading>Get in touch</ColumnHeading>
             </RevealOnScroll>
