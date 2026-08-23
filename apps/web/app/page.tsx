@@ -15,7 +15,7 @@ import { buttonVariants } from "@workspace/ui/components/button"
 import { cn } from "@workspace/ui/lib/utils"
 import { Section, SectionHeader } from "@/components/section"
 import { RevealOnScroll } from "@/components/reveal-on-scroll"
-import { Marquee, AnimatedCounter } from "@/components/animations"
+import { Marquee, AnimatedCounter, RotatingText } from "@/components/animations"
 import { QuoteCTA } from "@/components/quote-cta"
 import {
   services,
@@ -56,7 +56,18 @@ export default function HomePage() {
                 We Take Care of Your Health
               </span>
               <h1 className="mt-3 text-2xl font-semibold leading-tight tracking-tight text-foreground text-balance sm:mt-5 sm:text-4xl lg:text-5xl">
-                Medical equipment that keeps working after the invoice is paid.
+                We supply, install &amp; service{" "}
+                <RotatingText
+                  words={[
+                    "medical equipment",
+                    "physiotherapy solutions",
+                    "diagnostic devices",
+                    "rehabilitation equipment",
+                    "healthcare technology",
+                  ]}
+                  interval={2500}
+                />
+                {" "}across Tanzania.
               </h1>
               <p className="mt-3 text-xs leading-relaxed text-muted-foreground text-pretty sm:mt-4 sm:text-base lg:text-lg">
                 We supply, install and service medical, diagnostic and rehabilitation equipment across Tanzania — with certified technicians, genuine warranty, and support that answers the phone.

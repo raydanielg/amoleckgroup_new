@@ -2,6 +2,7 @@
 
 import { motion, useInView, type Variants } from "framer-motion"
 import { useEffect, useRef, useState, type ReactNode } from "react"
+import { cn } from "@workspace/ui/lib/utils"
 
 const fadeUpVariants: Variants = {
   hidden: { opacity: 0, y: 24 },
@@ -173,6 +174,41 @@ export function AnimatedCounter({
   return (
     <span ref={ref} className={className}>
       {display}
+    </span>
+  )
+}
+
+/** Rotates through an array of phrases with a smooth fade + slide animation. */
+export function RotatingText({
+  words,
+  interval = 2500,
+  className,
+}: {
+  words: string[]
+  interval?: number
+  className?: string
+}) {
+  const [index, setIndex] = useState(0)
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIndex((prev) => (prev + 1) % words.length)
+    }, interval)
+    return () => clearInterval(timer)
+  }, [words.length, interval])
+
+  return (
+    <span className={cn("relative inline-block", className)}>
+      <motion.span
+        key={index}
+        initial={{ opacity: 0, y: 12 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -12 }}
+        transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+        className="inline-block text-primary"
+      >
+        {words[index]}
+      </motion.span>
     </span>
   )
 }
