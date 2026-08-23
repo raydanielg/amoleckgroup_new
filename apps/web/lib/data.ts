@@ -314,6 +314,45 @@ export const statsNumbers = [
   { value: "24/7", label: "Emergency support" },
 ]
 
+export const teamMembers = [
+  {
+    name: "Amos Paschal",
+    role: "Chief Executive Officer",
+    title: "CEO & Director",
+    image: "/team/Amos Paschal CEO director .jpeg",
+    bio: "Leads Amoleck Group with a vision for reliable medical equipment supply and after-sales support across East Africa. Over a decade of experience in healthcare procurement and facility fit-out.",
+    linkedin: "#",
+    email: "amos@amoleck.co.tz",
+  },
+  {
+    name: "Ezra Daniel",
+    role: "Chief Technology Officer",
+    title: "CTO & Director",
+    image: "/team/Ezra Daniel CTO director.jpeg",
+    bio: "Oversees healthcare technology integration, clinical systems and diagnostic data infrastructure. Ensures every piece of equipment talks to the systems around it.",
+    linkedin: "#",
+    email: "ezra@amoleck.co.tz",
+  },
+  {
+    name: "Newton Nyema",
+    role: "Chief Information Officer",
+    title: "CIO & Director",
+    image: "/team/newton nyema CIO director.jpeg",
+    bio: "Drives information strategy and digital transformation across the organisation. Manages data security, systems architecture and technology partnerships.",
+    linkedin: "#",
+    email: "newton@amoleck.co.tz",
+  },
+  {
+    name: "Salome Thadeus",
+    role: "Sales Manager",
+    title: "Head of Sales",
+    image: "/team/Salome thadeus sales maager.jpeg",
+    bio: "Leads client relationships across hospitals, clinics and physiotherapy practices. Ensures every quote is specified correctly and delivered on time.",
+    linkedin: "#",
+    email: "salome@amoleck.co.tz",
+  },
+]
+
 export const facilityTypes = [
   "Hospital",
   "Clinic",

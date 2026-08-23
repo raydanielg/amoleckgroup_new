@@ -6,7 +6,7 @@ import { FacebookIcon, InstagramIcon, LinkedinIcon, TwitterIcon } from "@/compon
 import { RevealOnScroll } from "@/components/reveal-on-scroll"
 import { buttonVariants } from "@workspace/ui/components/button"
 import { cn } from "@workspace/ui/lib/utils"
-import { siteConfig, navLinks, services as serviceData, tickerItems } from "@/lib/data"
+import { siteConfig, tickerItems } from "@/lib/data"
 
 const serviceLinks = [
   { label: "Medical Equipment", href: "/services/medical" },

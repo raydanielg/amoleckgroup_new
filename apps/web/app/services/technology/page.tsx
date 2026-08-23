@@ -1,12 +1,8 @@
 import type { Metadata } from "next"
-import Link from "next/link"
-import { ArrowRight, Code2, Cpu, Briefcase, Smartphone, Globe, Server, CheckCircle2 } from "lucide-react"
-import { buttonVariants } from "@workspace/ui/components/button"
-import { Card, CardContent } from "@workspace/ui/components/card"
-import { Badge } from "@workspace/ui/components/badge"
-import { cn } from "@workspace/ui/lib/utils"
-import { Section, SectionHeader } from "@/components/section"
-import { FadeIn, FadeInStagger, FadeInItem } from "@/components/animations"
+import { Code2, Cpu, Briefcase, Smartphone, Globe, Server, CheckCircle2 } from "lucide-react"
+import { Section } from "@/components/section"
+import { PageHero } from "@/components/page-hero"
+import { RevealOnScroll } from "@/components/reveal-on-scroll"
 import { QuoteCTA } from "@/components/quote-cta"
 import { technologyCards } from "@/lib/data"
 
@@ -28,68 +24,50 @@ const whereWeHelp = [
 export default function ServiceTechnologyPage() {
   return (
     <>
-      <section className="relative overflow-hidden border-b border-border/40 bg-foreground text-background">
-        <div className="mx-auto max-w-7xl px-4 py-16 lg:px-8 lg:py-24">
-          <FadeIn>
-            <Badge variant="secondary" className="mb-4">Healthcare Technology</Badge>
-            <h1 className="max-w-3xl text-4xl font-bold tracking-tight lg:text-5xl">
-              Technology that talks to the equipment you already own.
-            </h1>
-            <p className="mt-6 max-w-2xl text-lg text-background/70">
-              Clinical systems, diagnostic integration and technical support. We configure around your existing estate rather than asking you to replace it.
-            </p>
-            <Link
-              href="/request-quote"
-              className={cn(buttonVariants({ variant: "secondary", size: "lg" }), "mt-8")}
-            >
-              Request a quote
-              <ArrowRight className="size-4" />
-            </Link>
-          </FadeIn>
-        </div>
-      </section>
+      <PageHero
+        label="Healthcare Technology"
+        title="Technology that talks to the equipment you already own."
+        subtitle="Clinical systems, diagnostic integration and technical support. We configure around your existing estate rather than asking you to replace it."
+      />
 
       <Section>
-        <FadeIn>
-          <div className="mx-auto max-w-3xl">
-            <h2 className="text-2xl font-bold">Where we help</h2>
-            <div className="mt-6 grid gap-3 sm:grid-cols-2">
-              {whereWeHelp.map((item) => (
-                <div key={item} className="flex items-center gap-3 rounded-lg border border-border/40 p-4">
-                  <CheckCircle2 className="size-5 shrink-0 text-primary" />
-                  <span className="text-sm">{item}</span>
-                </div>
+        <div className="mx-auto max-w-3xl">
+          <RevealOnScroll>
+            <span className="text-xs font-medium uppercase tracking-[0.2em] text-brand-teal">Where we help</span>
+            <h2 className="mt-4 text-2xl font-semibold">Our capabilities</h2>
+            <div className="mt-8 grid gap-3 sm:grid-cols-2">
+              {whereWeHelp.map((item, idx) => (
+                <RevealOnScroll key={item} delay={idx * 50}>
+                  <div className="flex items-center gap-3 rounded-xl border border-border p-4">
+                    <CheckCircle2 className="size-5 shrink-0 text-brand-teal" />
+                    <span className="text-sm">{item}</span>
+                  </div>
+                </RevealOnScroll>
               ))}
             </div>
-          </div>
-        </FadeIn>
+          </RevealOnScroll>
+        </div>
       </Section>
 
       <Section className="bg-muted/30">
-        <FadeIn>
-          <SectionHeader
-            eyebrow="What we build"
-            title="Our technology services"
-          />
-        </FadeIn>
-        <FadeInStagger className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3" stagger={0.1}>
+        <RevealOnScroll>
+          <span className="text-xs font-medium uppercase tracking-[0.2em] text-brand-teal">What we build</span>
+          <h2 className="mt-4 text-2xl font-semibold">Our technology services</h2>
+        </RevealOnScroll>
+        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {technologyCards.map((tech, idx) => {
             const Icon = techIcons[idx % techIcons.length]!
             return (
-              <FadeInItem key={tech.title}>
-                <Card className="h-full">
-                  <CardContent className="pt-6">
-                    <div className="mb-4 flex size-12 items-center justify-center rounded-xl bg-primary/10">
-                      <Icon className="size-6 text-primary" />
-                    </div>
-                    <h3 className="text-lg font-semibold">{tech.title}</h3>
-                    <p className="mt-2 text-sm text-muted-foreground">{tech.description}</p>
-                  </CardContent>
-                </Card>
-              </FadeInItem>
+              <RevealOnScroll key={tech.title} delay={idx * 80}>
+                <div className="group flex h-full flex-col gap-3 rounded-xl border border-border p-6 transition-all duration-300 hover:-translate-y-1 hover:border-brand-teal/30 hover:shadow-lg hover:shadow-brand-teal/5">
+                  <Icon className="size-6 text-brand-teal transition-transform duration-300 group-hover:scale-110" />
+                  <h3 className="text-lg font-semibold">{tech.title}</h3>
+                  <p className="text-sm text-muted-foreground">{tech.description}</p>
+                </div>
+              </RevealOnScroll>
             )
           })}
-        </FadeInStagger>
+        </div>
       </Section>
 
       <QuoteCTA />

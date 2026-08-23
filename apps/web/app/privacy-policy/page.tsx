@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { Section } from "@/components/section"
-import { FadeIn } from "@/components/animations"
+import { PageHero } from "@/components/page-hero"
+import { RevealOnScroll } from "@/components/reveal-on-scroll"
 import { siteConfig } from "@/lib/data"
 
 export const metadata: Metadata = {
@@ -11,18 +12,15 @@ export const metadata: Metadata = {
 export default function PrivacyPolicyPage() {
   return (
     <>
-      <section className="border-b border-border/40 bg-muted/30">
-        <div className="mx-auto max-w-7xl px-4 py-16 lg:px-8 lg:py-24">
-          <FadeIn>
-            <h1 className="text-4xl font-bold tracking-tight lg:text-5xl">Privacy Policy</h1>
-            <p className="mt-4 text-sm text-muted-foreground">Last updated: {new Date().getFullYear()}</p>
-          </FadeIn>
-        </div>
-      </section>
+      <PageHero
+        label="Legal"
+        title="Privacy Policy"
+      />
 
       <Section>
-        <FadeIn>
+        <RevealOnScroll>
           <div className="mx-auto max-w-3xl space-y-6 text-muted-foreground">
+            <p className="text-sm">Last updated: {new Date().getFullYear()}</p>
             <div>
               <h2 className="text-xl font-semibold text-foreground">Introduction</h2>
               <p className="mt-2">
@@ -75,7 +73,7 @@ export default function PrivacyPolicyPage() {
               </p>
             </div>
           </div>
-        </FadeIn>
+        </RevealOnScroll>
       </Section>
     </>
   )
