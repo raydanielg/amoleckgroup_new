@@ -69,15 +69,17 @@ export function SiteNavbar() {
                   key={link.href}
                   href={link.href}
                   className={cn(
-                    "relative rounded-lg px-3 py-2 text-sm font-medium transition-colors",
-                    active ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+                    "group relative rounded-lg px-3 py-2 text-sm font-medium transition-all duration-300",
+                    active
+                      ? "text-primary"
+                      : "text-muted-foreground hover:text-foreground"
                   )}
                 >
                   {link.label}
                   <span
                     className={cn(
-                      "absolute bottom-0 left-3 right-3 h-px bg-brand-teal transition-all duration-300",
-                      active ? "opacity-100 scale-x-100" : "opacity-0 scale-x-0"
+                      "absolute bottom-0 left-3 right-3 h-0.5 rounded-full bg-primary transition-all duration-300",
+                      active ? "opacity-100 scale-x-100" : "opacity-0 scale-x-0 group-hover:opacity-40 group-hover:scale-x-75"
                     )}
                   />
                 </Link>
@@ -142,10 +144,16 @@ export function SiteNavbar() {
                     <Link
                       href={link.href}
                       className={cn(
-                        "block border-b border-border py-4 text-lg font-medium transition-colors",
-                        active ? "text-brand-teal" : "hover:text-brand-teal"
+                        "group flex items-center gap-3 border-b border-border py-4 text-lg font-medium transition-colors",
+                        active ? "text-primary" : "text-foreground hover:text-primary"
                       )}
                     >
+                      <span
+                        className={cn(
+                          "h-5 w-1 rounded-full bg-primary transition-all duration-300",
+                          active ? "opacity-100" : "opacity-0"
+                        )}
+                      />
                       {link.label}
                     </Link>
                   </div>
@@ -164,7 +172,7 @@ export function SiteNavbar() {
                 href={`tel:${siteConfig.phone.replace(/\s/g, "")}`}
                 className="flex items-center gap-2 font-medium text-foreground"
               >
-                <Phone className="size-4 text-brand-teal" />
+                <Phone className="size-4 text-primary" />
                 {siteConfig.phone}
               </a>
               <Link

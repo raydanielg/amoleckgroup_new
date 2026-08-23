@@ -11,7 +11,7 @@ import { equipmentCategories } from "@/lib/data"
 
 export const metadata: Metadata = {
   title: "Equipment Catalogue — Amoleck Group",
-  description: "Browse diagnostic, therapy, mobility and clinical equipment available for supply and installation in Kenya.",
+  description: "Browse diagnostic, therapy, mobility and clinical equipment available for supply and installation in Tanzania.",
 }
 
 export default function EquipmentPage() {

@@ -28,9 +28,9 @@ function FooterLink({ href, children }: { href: string; children: React.ReactNod
   return (
     <Link
       href={href}
-      className="group inline-flex items-center gap-1.5 py-1 text-sm text-brand-cream/60 transition-colors hover:text-brand-cream"
+      className="group inline-flex items-center gap-1.5 py-1 text-sm text-muted-foreground transition-colors hover:text-foreground"
     >
-      <span className="h-px w-0 bg-brand-teal transition-all duration-300 group-hover:w-3" />
+      <span className="h-px w-0 bg-primary transition-all duration-300 group-hover:w-3" />
       {children}
     </Link>
   )
@@ -38,7 +38,7 @@ function FooterLink({ href, children }: { href: string; children: React.ReactNod
 
 function ColumnHeading({ children }: { children: React.ReactNode }) {
   return (
-    <h3 className="mb-5 text-xs font-semibold uppercase tracking-[0.16em] text-brand-cream">
+    <h3 className="mb-5 text-xs font-semibold uppercase tracking-[0.16em] text-foreground">
       {children}
     </h3>
   )
@@ -48,20 +48,20 @@ export function SiteFooter() {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="relative overflow-hidden border-t border-brand-cream/8 bg-brand-ink text-brand-cream">
+    <footer className="relative overflow-hidden border-t border-border bg-muted/30 text-foreground">
       {/* CTA strip */}
-      <div className="relative z-10 border-b border-brand-cream/8">
+      <div className="relative z-10 border-b border-border">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
           <div className="flex flex-col items-start gap-10 lg:flex-row lg:items-center lg:justify-between">
             <RevealOnScroll className="max-w-2xl">
-              <span className="mb-5 inline-flex items-center gap-2 rounded-full border border-brand-cream/15 px-3.5 py-1.5 text-xs font-medium text-brand-cream/60">
-                <span className="size-1.5 rounded-full bg-brand-teal" />
+              <span className="mb-5 inline-flex items-center gap-2 rounded-full border border-border px-3.5 py-1.5 text-xs font-medium text-muted-foreground">
+                <span className="size-1.5 rounded-full bg-primary" />
                 Replies within 2 working hours
               </span>
-              <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl text-brand-cream">
+              <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl text-foreground">
                 Let&apos;s equip your facility properly.
               </h2>
-              <p className="mt-5 max-w-xl text-base leading-relaxed text-brand-cream/50">
+              <p className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground">
                 Tell us what you need — a single device, a full department fit-out, or a service contract for equipment you already own. You will get a written quote, not a sales call.
               </p>
             </RevealOnScroll>
@@ -77,7 +77,7 @@ export function SiteFooter() {
                 </Link>
                 <a
                   href={`tel:${siteConfig.phone.replace(/\s/g, "")}`}
-                  className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full border border-brand-cream/20 px-7 py-3.5 text-sm font-semibold text-brand-cream transition-colors hover:border-brand-teal hover:text-brand-teal"
+                  className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full border border-border px-7 py-3.5 text-sm font-semibold text-foreground transition-colors hover:border-primary hover:text-primary"
                 >
                   <Phone className="size-4" />
                   {siteConfig.phone}
@@ -89,14 +89,14 @@ export function SiteFooter() {
       </div>
 
       {/* Ticker strip */}
-      <div className="relative z-10 border-b border-brand-cream/8 bg-brand-cream/[0.02] py-4">
+      <div className="relative z-10 border-b border-border bg-background/50 py-4">
         <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-2 px-4 sm:px-6 lg:px-8">
           {tickerItems.map((item) => (
             <span
               key={item}
-              className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.18em] text-brand-cream/40"
+              className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground"
             >
-              <span className="size-1 rounded-full bg-brand-teal/60" />
+              <span className="size-1 rounded-full bg-primary/60" />
               {item}
             </span>
           ))}
@@ -113,33 +113,33 @@ export function SiteFooter() {
                 <span className="grid h-10 w-10 place-items-center rounded-xl bg-primary text-sm font-bold text-primary-foreground">
                   A
                 </span>
-                <span className="text-lg font-semibold tracking-tight text-brand-cream">
+                <span className="text-lg font-semibold tracking-tight text-foreground">
                   {siteConfig.name}
                 </span>
               </Link>
             </RevealOnScroll>
 
             <RevealOnScroll delay={90}>
-              <p className="mt-5 max-w-sm text-sm leading-relaxed text-brand-cream/50">
+              <p className="mt-5 max-w-sm text-sm leading-relaxed text-muted-foreground">
                 {siteConfig.description}
               </p>
             </RevealOnScroll>
 
             <RevealOnScroll delay={180}>
               <div className="mt-8 flex flex-wrap gap-2.5">
-                <Link href={siteConfig.social.facebook} className="grid h-10 w-10 place-items-center rounded-full border border-brand-cream/15 text-brand-cream/50 transition-colors hover:border-brand-teal hover:text-brand-teal" aria-label="Facebook">
+                <Link href={siteConfig.social.facebook} className="grid h-10 w-10 place-items-center rounded-full border border-border text-muted-foreground transition-colors hover:border-primary hover:text-primary" aria-label="Facebook">
                   <FacebookIcon className="size-4" />
                 </Link>
-                <Link href={siteConfig.social.instagram} className="grid h-10 w-10 place-items-center rounded-full border border-brand-cream/15 text-brand-cream/50 transition-colors hover:border-brand-teal hover:text-brand-teal" aria-label="Instagram">
+                <Link href={siteConfig.social.instagram} className="grid h-10 w-10 place-items-center rounded-full border border-border text-muted-foreground transition-colors hover:border-primary hover:text-primary" aria-label="Instagram">
                   <InstagramIcon className="size-4" />
                 </Link>
-                <Link href={siteConfig.social.linkedin} className="grid h-10 w-10 place-items-center rounded-full border border-brand-cream/15 text-brand-cream/50 transition-colors hover:border-brand-teal hover:text-brand-teal" aria-label="LinkedIn">
+                <Link href={siteConfig.social.linkedin} className="grid h-10 w-10 place-items-center rounded-full border border-border text-muted-foreground transition-colors hover:border-primary hover:text-primary" aria-label="LinkedIn">
                   <LinkedinIcon className="size-4" />
                 </Link>
-                <Link href={siteConfig.social.twitter} className="grid h-10 w-10 place-items-center rounded-full border border-brand-cream/15 text-brand-cream/50 transition-colors hover:border-brand-teal hover:text-brand-teal" aria-label="Twitter">
+                <Link href={siteConfig.social.twitter} className="grid h-10 w-10 place-items-center rounded-full border border-border text-muted-foreground transition-colors hover:border-primary hover:text-primary" aria-label="Twitter">
                   <TwitterIcon className="size-4" />
                 </Link>
-                <Link href={`https://wa.me/${siteConfig.whatsapp}`} className="grid h-10 w-10 place-items-center rounded-full border border-brand-cream/15 text-brand-cream/50 transition-colors hover:border-brand-teal hover:text-brand-teal" aria-label="WhatsApp">
+                <Link href={`https://wa.me/${siteConfig.whatsapp}`} className="grid h-10 w-10 place-items-center rounded-full border border-border text-muted-foreground transition-colors hover:border-primary hover:text-primary" aria-label="WhatsApp">
                   <MessageCircle className="size-4" />
                 </Link>
               </div>
@@ -188,42 +188,42 @@ export function SiteFooter() {
               <div className="space-y-4">
                 <a
                   href={`tel:${siteConfig.phone.replace(/\s/g, "")}`}
-                  className="group flex items-start gap-3 text-sm text-brand-cream/60 transition-colors hover:text-brand-cream"
+                  className="group flex items-start gap-3 text-sm text-muted-foreground transition-colors hover:text-foreground"
                 >
-                  <span className="mt-0.5 text-brand-teal transition-transform duration-300 group-hover:scale-110">
+                  <span className="mt-0.5 text-primary transition-transform duration-300 group-hover:scale-110">
                     <Phone className="size-4" />
                   </span>
                   <span>
-                    <span className="block font-medium text-brand-cream">{siteConfig.phone}</span>
+                    <span className="block font-medium text-foreground">{siteConfig.phone}</span>
                     <span className="text-xs">Sales &amp; support</span>
                   </span>
                 </a>
 
                 <a
                   href={`mailto:${siteConfig.email}`}
-                  className="group flex items-start gap-3 text-sm text-brand-cream/60 transition-colors hover:text-brand-cream"
+                  className="group flex items-start gap-3 text-sm text-muted-foreground transition-colors hover:text-foreground"
                 >
-                  <span className="mt-0.5 text-brand-teal transition-transform duration-300 group-hover:scale-110">
+                  <span className="mt-0.5 text-primary transition-transform duration-300 group-hover:scale-110">
                     <Mail className="size-4" />
                   </span>
                   <span>
-                    <span className="block font-medium text-brand-cream">{siteConfig.email}</span>
+                    <span className="block font-medium text-foreground">{siteConfig.email}</span>
                     <span className="text-xs">General enquiries</span>
                   </span>
                 </a>
 
-                <div className="group flex items-start gap-3 text-sm text-brand-cream/60">
-                  <span className="mt-0.5 text-brand-teal">
+                <div className="group flex items-start gap-3 text-sm text-muted-foreground">
+                  <span className="mt-0.5 text-primary">
                     <MapPin className="size-4" />
                   </span>
                   <span>
-                    <span className="block font-medium text-brand-cream">{siteConfig.location}</span>
+                    <span className="block font-medium text-foreground">{siteConfig.location}</span>
                     <span className="text-xs">Service coverage nationwide</span>
                   </span>
                 </div>
 
-                <div className="flex items-start gap-3 text-sm text-brand-cream/60">
-                  <span className="mt-0.5 text-brand-teal">
+                <div className="flex items-start gap-3 text-sm text-muted-foreground">
+                  <span className="mt-0.5 text-primary">
                     <Clock className="size-4" />
                   </span>
                   <span className="text-xs">{siteConfig.hours}</span>
@@ -235,17 +235,17 @@ export function SiteFooter() {
       </div>
 
       {/* Bottom bar */}
-      <div className="relative z-10 border-t border-brand-cream/8">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-4 py-6 text-xs text-brand-cream/40 sm:flex-row sm:px-6 lg:px-8">
+      <div className="relative z-10 border-t border-border">
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-4 py-6 text-xs text-muted-foreground sm:flex-row sm:px-6 lg:px-8">
           <p>&copy; {year} {siteConfig.name}. All rights reserved.</p>
           <nav className="flex items-center gap-6">
-            <Link href="/privacy-policy" className="transition-colors hover:text-brand-cream">
+            <Link href="/privacy-policy" className="transition-colors hover:text-foreground">
               Privacy Policy
             </Link>
-            <Link href="/terms" className="transition-colors hover:text-brand-cream">
+            <Link href="/terms" className="transition-colors hover:text-foreground">
               Terms &amp; Conditions
             </Link>
-            <Link href="/contact" className="transition-colors hover:text-brand-cream">
+            <Link href="/contact" className="transition-colors hover:text-foreground">
               Contact
             </Link>
           </nav>
@@ -254,7 +254,7 @@ export function SiteFooter() {
 
       {/* Watermark */}
       <div className="pointer-events-none select-none overflow-hidden leading-none">
-        <span className="block translate-y-[0.12em] text-center text-[22vw] font-black tracking-tighter text-brand-cream/[0.03] lg:text-[16vw]">
+        <span className="block translate-y-[0.12em] text-center text-[22vw] font-black tracking-tighter text-foreground/[0.03] lg:text-[16vw]">
           AMOLECK
         </span>
       </div>

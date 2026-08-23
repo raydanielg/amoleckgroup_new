@@ -12,21 +12,21 @@ export const site = {
   name: "Amoleck Group",
   /** Shown under the logo in the footer. One or two sentences, no more. */
   tagline:
-    "Medical equipment, physiotherapy solutions and healthcare technology for hospitals, clinics and practitioners across Kenya.",
+    "We Take Care of Your Health through Physiotherapy services and up to date Medical Equipment supply.",
   /** Used in the copyright line and in structured data. */
   legalName: "Amoleck Group Limited",
   foundedYear: 2015, // TODO: your actual founding year
 
   contact: {
-    phone: "+254 700 000 000", // TODO
-    phoneHref: "tel:+254700000000", // TODO
-    whatsapp: "https://wa.me/254700000000", // TODO
-    email: "info@amoleckgroup.co.ke", // TODO
+    phone: "+255 626 371 854",
+    phoneHref: "tel:+255626371854",
+    whatsapp: "https://wa.me/255626371854",
+    email: "info@amoleck.co.tz",
     address: {
-      line1: "Nairobi Business Park", // TODO
-      line2: "Ngong Road, Nairobi",
-      country: "Kenya",
-      mapsUrl: "https://maps.google.com/?q=Nairobi+Kenya", // TODO
+      line1: "Dar es Salaam", // TODO
+      line2: "Tanzania",
+      country: "Tanzania",
+      mapsUrl: "https://maps.google.com/?q=Dar+es+Salaam+Tanzania", // TODO
     },
     hours: [
       { days: "Mon – Fri", time: "8:00 AM – 6:00 PM" },
@@ -40,7 +40,7 @@ export const site = {
     { name: "Instagram", href: "https://instagram.com/", icon: "instagram" },
     { name: "LinkedIn", href: "https://linkedin.com/", icon: "linkedin" },
     { name: "X", href: "https://x.com/", icon: "x" },
-    { name: "WhatsApp", href: "https://wa.me/254700000000", icon: "whatsapp" },
+    { name: "WhatsApp", href: "https://wa.me/255626371854", icon: "whatsapp" },
   ] as const,
 
   /* --- Main navigation, used by the navbar. ------------------------------- */

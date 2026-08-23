@@ -16,38 +16,63 @@ const fontMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://amoleck.co.tz"),
   title: {
-    default: "Amoleck Group — Medical Equipment & Healthcare Technology in Kenya",
+    default: "Amoleck Group — Medical Equipment & Healthcare Technology in Tanzania",
     template: "%s — Amoleck Group",
   },
   description: siteConfig.description,
   keywords: [
     "Amoleck Group",
-    "medical equipment Kenya",
-    "physiotherapy equipment Kenya",
+    "medical equipment Tanzania",
+    "physiotherapy equipment Tanzania",
     "diagnostic equipment",
     "hospital equipment supply",
     "biomedical servicing",
     "medical equipment installation",
+    "healthcare technology East Africa",
+    "medical equipment suppliers Tanzania",
+    "clinic fit-out Tanzania",
   ],
   authors: [{ name: siteConfig.name }],
   openGraph: {
-    title: "Amoleck Group — Medical Equipment & Healthcare Technology in Kenya",
+    title: "Amoleck Group — Medical Equipment & Healthcare Technology in Tanzania",
     description: siteConfig.description,
     url: "https://amoleck.co.tz",
     siteName: siteConfig.name,
-    locale: "en_KE",
+    locale: "en_TZ",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Amoleck Group — Medical Equipment & Healthcare Technology in Kenya",
+    title: "Amoleck Group — Medical Equipment & Healthcare Technology in Tanzania",
     description: siteConfig.description,
   },
   robots: {
     index: true,
     follow: true,
   },
+}
+
+const orgJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Amoleck Group",
+  url: "https://amoleck.co.tz",
+  description: "Supply, installation and servicing of medical, physiotherapy and diagnostic equipment for hospitals and clinics across Tanzania.",
+  email: "info@amoleck.co.tz",
+  telephone: "+255 626 371 854",
+  address: {
+    "@type": "PostalAddress",
+    addressCountry: "TZ",
+    addressRegion: "Dar es Salaam",
+  },
+  sameAs: [
+    "https://facebook.com/amoleck",
+    "https://instagram.com/amoleck",
+    "https://linkedin.com/company/amoleck",
+    "https://twitter.com/amoleck",
+  ],
 }
 
 export default function RootLayout({
@@ -62,6 +87,10 @@ export default function RootLayout({
       className={cn("antialiased", fontMono.variable, "font-sans", roboto.variable)}
     >
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
+        />
         <ThemeProvider>
           <div className="flex min-h-svh flex-col">
             <SiteNavbar />

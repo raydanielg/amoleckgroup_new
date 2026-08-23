@@ -10,7 +10,7 @@ import { QuoteCTA } from "@/components/quote-cta"
 
 export const metadata: Metadata = {
   title: "Physiotherapy Solutions — Amoleck Group",
-  description: "Rehabilitation equipment, clinic setup and practitioner training for physiotherapy practices in Kenya.",
+  description: "Rehabilitation equipment, clinic setup and practitioner training for physiotherapy practices in Tanzania.",
 }
 
 const clinicPackage = [

@@ -116,7 +116,7 @@ export default function MotionPreviewPage() {
         title="Medical equipment that keeps working after the invoice is paid."
         descriptionBefore="We supply, install and service equipment for"
         rotatingWords={["hospitals", "clinics", "physio practices", "laboratories"]}
-        descriptionAfter="across Kenya."
+        descriptionAfter="across Tanzania."
         primaryCta={{ label: "Request a quote", href: "/request-quote" }}
         secondaryCta={{ label: "Browse equipment", href: "/equipment" }}
         media={
@@ -133,7 +133,7 @@ export default function MotionPreviewPage() {
             <div className="mt-6 grid grid-cols-3 gap-4 text-center">
               {[
                 { v: 500, s: "+", l: "Installs" },
-                { v: 47, s: "", l: "Counties" },
+                { v: 47, s: "", l: "Regions" },
                 { v: 24, s: "/7", l: "Support" },
               ].map((stat) => (
                 <div key={stat.l}>
@@ -153,9 +153,9 @@ export default function MotionPreviewPage() {
       {/* ---------------------------------------------------------------- */}
       <StatsBand
         stats={[
-          { value: 11, suffix: "+", label: "Years serving Kenya" },
+          { value: 11, suffix: "+", label: "Years serving Tanzania" },
           { value: 500, suffix: "+", label: "Installations" },
-          { value: 47, label: "Counties covered" },
+          { value: 47, label: "Regions covered" },
           { value: 24, suffix: "/7", label: "Emergency support" },
         ]}
       />

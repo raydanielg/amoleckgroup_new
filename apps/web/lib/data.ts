@@ -1,14 +1,14 @@
 export const siteConfig = {
   name: "Amoleck Group",
   shortName: "Amoleck",
-  tagline: "Medical Equipment & Healthcare Technology",
+  tagline: "We Take Care of Your Health through Physiotherapy services and up to date Medical Equipment supply.",
   description:
-    "Supply, installation and servicing of medical, physiotherapy and diagnostic equipment for hospitals and clinics across Kenya.",
-  location: "Kenya",
-  phone: "+255 742 710 054",
+    "Supply, installation and servicing of medical, physiotherapy and diagnostic equipment for hospitals and clinics across Tanzania.",
+  location: "Dar es Salaam, Tanzania",
+  phone: "+255 626 371 854",
   email: "info@amoleck.co.tz",
   website: "amoleck.co.tz",
-  whatsapp: "+255742710054",
+  whatsapp: "+255626371854",
   hours: "Monday - Friday: 8:00 AM - 5:00 PM | Saturday: 9:00 AM - 1:00 PM",
   social: {
     facebook: "https://facebook.com/amoleck",
@@ -280,7 +280,7 @@ export const whyChooseUs = [
   },
   {
     title: "Technicians, not resellers",
-    description: "Our engineers are biomedical-trained and travel to site anywhere in Kenya.",
+    description: "Our engineers are biomedical-trained and travel to site anywhere in Tanzania.",
     icon: "users",
   },
   {
@@ -308,9 +308,9 @@ export const quoteOptions = [
 ]
 
 export const statsNumbers = [
-  { value: "[X]+", label: "Years serving Kenya" },
+  { value: "[X]+", label: "Years serving Tanzania" },
   { value: "[X]+", label: "Installations completed" },
-  { value: "[X]", label: "Counties covered" },
+  { value: "[X]", label: "Regions covered" },
   { value: "24/7", label: "Emergency support" },
 ]
 

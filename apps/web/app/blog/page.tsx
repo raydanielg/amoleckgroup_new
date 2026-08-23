@@ -17,7 +17,7 @@ const articleIdeas = [
   "How to specify equipment for a ward that has unstable power",
   "What a service contract should include (and what to refuse)",
   "Five questions to ask before signing an equipment tender",
-  "Setting up a physiotherapy clinic in Kenya: a realistic equipment budget",
+  "Setting up a physiotherapy clinic in Tanzania: a realistic equipment budget",
   "Preventive maintenance schedules: what to do monthly, quarterly and annually",
 ]
 
@@ -27,7 +27,7 @@ export default function BlogPage() {
       <PageHero
         label="Blog"
         title="Insights from our biomedical team"
-        subtitle="Practical notes on choosing, installing and maintaining medical equipment in Kenya. Written by the people who do the installations."
+        subtitle="Practical notes on choosing, installing and maintaining medical equipment in Tanzania. Written by the people who do the installations."
       />
 
       <Section>

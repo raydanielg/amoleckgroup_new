@@ -249,7 +249,7 @@ export function SiteFooter() {
                     <Counter to={yearsActive} suffix="+" />
                   </div>
                   <div className="mt-1 text-xs uppercase tracking-wider text-muted-foreground">
-                    Years serving Kenya
+                    Years serving Tanzania
                   </div>
                 </div>
                 <div>

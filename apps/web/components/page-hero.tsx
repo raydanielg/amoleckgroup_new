@@ -10,18 +10,18 @@ export function PageHero({
   subtitle?: string
 }) {
   return (
-    <section className="bg-brand-ink py-20 lg:py-28">
+    <section className="bg-muted/30 py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <RevealOnScroll>
           <div className="mx-auto max-w-3xl text-center">
-            <span className="text-xs font-medium uppercase tracking-[0.2em] text-brand-teal">
+            <span className="text-xs font-medium uppercase tracking-[0.2em] text-primary">
               {label}
             </span>
-            <h1 className="mt-6 text-4xl font-semibold tracking-tight text-brand-cream text-balance sm:text-5xl lg:text-6xl">
+            <h1 className="mt-6 text-4xl font-semibold tracking-tight text-foreground text-balance sm:text-5xl lg:text-6xl">
               {title}
             </h1>
             {subtitle && (
-              <p className="mt-6 text-lg text-brand-cream/60 text-pretty">
+              <p className="mt-6 text-lg text-muted-foreground text-pretty">
                 {subtitle}
               </p>
             )}

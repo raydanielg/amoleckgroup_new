@@ -12,13 +12,13 @@ export function QuoteCTA({
   description?: string
 }) {
   return (
-    <section className="bg-brand-ink py-20 lg:py-28">
+    <section className="bg-muted/30 py-20 lg:py-28">
       <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
         <RevealOnScroll>
-          <h2 className="text-3xl font-semibold tracking-tight text-brand-cream text-balance lg:text-5xl">
+          <h2 className="text-3xl font-semibold tracking-tight text-foreground text-balance lg:text-5xl">
             {title}
           </h2>
-          <p className="mx-auto mt-6 max-w-2xl text-base text-brand-cream/50 text-pretty lg:text-lg">
+          <p className="mx-auto mt-6 max-w-2xl text-base text-muted-foreground text-pretty lg:text-lg">
             {description}
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
@@ -33,7 +33,7 @@ export function QuoteCTA({
               href="/contact"
               className={cn(
                 buttonVariants({ variant: "outline", size: "lg" }),
-                "rounded-full border-brand-cream/20 bg-transparent text-brand-cream hover:bg-brand-cream/10 hover:text-brand-cream"
+                "rounded-full"
               )}
             >
               <Phone className="size-4" />
