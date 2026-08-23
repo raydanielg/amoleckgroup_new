@@ -33,13 +33,13 @@ export default function ServiceTechnologyPage() {
       <Section>
         <div className="mx-auto max-w-3xl">
           <RevealOnScroll>
-            <span className="text-xs font-medium uppercase tracking-[0.2em] text-brand-teal">Where we help</span>
-            <h2 className="mt-4 text-2xl font-semibold">Our capabilities</h2>
-            <div className="mt-8 grid gap-3 sm:grid-cols-2">
+            <span className="text-xs font-medium uppercase tracking-[0.2em] text-primary">Where we help</span>
+            <h2 className="mt-3 text-xl font-semibold sm:mt-4 sm:text-2xl">Our capabilities</h2>
+            <div className="mt-6 grid gap-3 sm:mt-8 sm:grid-cols-2">
               {whereWeHelp.map((item, idx) => (
                 <RevealOnScroll key={item} delay={idx * 50}>
                   <div className="flex items-center gap-3 rounded-xl border border-border p-4">
-                    <CheckCircle2 className="size-5 shrink-0 text-brand-teal" />
+                    <CheckCircle2 className="size-5 shrink-0 text-primary" />
                     <span className="text-sm">{item}</span>
                   </div>
                 </RevealOnScroll>
@@ -51,17 +51,17 @@ export default function ServiceTechnologyPage() {
 
       <Section className="bg-muted/30">
         <RevealOnScroll>
-          <span className="text-xs font-medium uppercase tracking-[0.2em] text-brand-teal">What we build</span>
-          <h2 className="mt-4 text-2xl font-semibold">Our technology services</h2>
+          <span className="text-xs font-medium uppercase tracking-[0.2em] text-primary">What we build</span>
+          <h2 className="mt-3 text-xl font-semibold sm:mt-4 sm:text-2xl">Our technology services</h2>
         </RevealOnScroll>
-        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-8 grid gap-4 sm:mt-12 sm:grid-cols-2 lg:grid-cols-3">
           {technologyCards.map((tech, idx) => {
             const Icon = techIcons[idx % techIcons.length]!
             return (
               <RevealOnScroll key={tech.title} delay={idx * 80}>
-                <div className="group flex h-full flex-col gap-3 rounded-xl border border-border p-6 transition-all duration-300 hover:-translate-y-1 hover:border-brand-teal/30 hover:shadow-lg hover:shadow-brand-teal/5">
-                  <Icon className="size-6 text-brand-teal transition-transform duration-300 group-hover:scale-110" />
-                  <h3 className="text-lg font-semibold">{tech.title}</h3>
+                <div className="group flex h-full flex-col gap-3 rounded-xl border border-border p-5 sm:p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5">
+                  <Icon className="size-6 text-primary transition-transform duration-300 group-hover:scale-110" />
+                  <h3 className="text-base font-semibold sm:text-lg">{tech.title}</h3>
                   <p className="text-sm text-muted-foreground">{tech.description}</p>
                 </div>
               </RevealOnScroll>

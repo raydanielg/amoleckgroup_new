@@ -11,7 +11,7 @@ export function Section({
   containerClassName?: string
 }) {
   return (
-    <section className={cn("py-20 lg:py-28", className)}>
+    <section className={cn("py-12 sm:py-16 lg:py-24", className)}>
       <div className={cn("mx-auto max-w-7xl px-4 sm:px-6 lg:px-8", containerClassName)}>
         {children}
       </div>
@@ -46,13 +46,13 @@ export function SectionHeader({
         </span>
       )}
       <h2 className={cn(
-        "max-w-2xl text-3xl font-semibold tracking-tight text-balance sm:text-4xl lg:text-5xl",
+        "max-w-2xl text-2xl font-semibold tracking-tight text-balance sm:text-3xl lg:text-4xl",
         align === "center" && "mx-auto"
       )}>
         {title}
       </h2>
       {description && (
-        <p className="max-w-2xl text-base text-muted-foreground text-pretty lg:text-lg">
+        <p className="max-w-2xl text-sm text-muted-foreground text-pretty sm:text-base lg:text-lg">
           {description}
         </p>
       )}

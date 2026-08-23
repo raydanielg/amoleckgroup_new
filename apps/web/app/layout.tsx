@@ -16,7 +16,7 @@ const fontMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://amoleck.co.tz"),
+  metadataBase: new URL("https://afyavifaa.co.tz"),
   title: {
     default: "Amoleck Group — Medical Equipment & Healthcare Technology in Tanzania",
     template: "%s — Amoleck Group",
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Amoleck Group — Medical Equipment & Healthcare Technology in Tanzania",
     description: siteConfig.description,
-    url: "https://amoleck.co.tz",
+    url: "https://afyavifaa.co.tz",
     siteName: siteConfig.name,
     locale: "en_TZ",
     type: "website",
@@ -58,9 +58,9 @@ const orgJsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "Amoleck Group",
-  url: "https://amoleck.co.tz",
+  url: "https://afyavifaa.co.tz",
   description: "Supply, installation and servicing of medical, physiotherapy and diagnostic equipment for hospitals and clinics across Tanzania.",
-  email: "info@amoleck.co.tz",
+  email: "info@afyavifaa.co.tz",
   telephone: "+255 626 371 854",
   address: {
     "@type": "PostalAddress",

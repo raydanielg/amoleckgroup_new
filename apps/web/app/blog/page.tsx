@@ -32,17 +32,17 @@ export default function BlogPage() {
 
       <Section>
         <RevealOnScroll>
-          <div className="mx-auto max-w-2xl rounded-2xl border border-border p-12 text-center">
-            <div className="mx-auto mb-6 flex size-16 items-center justify-center rounded-full bg-brand-teal/10">
-              <FileText className="size-8 text-brand-teal" />
+          <div className="mx-auto max-w-2xl rounded-2xl border border-border p-5 text-center sm:p-12">
+            <div className="mx-auto mb-5 flex size-14 items-center justify-center rounded-full bg-primary/10 sm:mb-6 sm:size-16">
+              <FileText className="size-7 text-primary sm:size-8" />
             </div>
-            <h2 className="text-2xl font-semibold">First articles are on the way</h2>
-            <p className="mt-4 text-muted-foreground">
+            <h2 className="text-xl font-semibold sm:text-2xl">First articles are on the way</h2>
+            <p className="mt-3 text-sm text-muted-foreground sm:mt-4 sm:text-base">
               In the meantime, our team is happy to answer equipment questions directly.
             </p>
             <Link
               href="/contact"
-              className={cn(buttonVariants({ size: "lg" }), "mt-8 rounded-full")}
+              className={cn(buttonVariants({ size: "sm" }), "mt-8 rounded-md")}
             >
               Contact us
               <ArrowRight className="size-4" />
@@ -50,13 +50,13 @@ export default function BlogPage() {
           </div>
         </RevealOnScroll>
 
-        <RevealOnScroll delay={150} className="mt-12">
+        <RevealOnScroll delay={150} className="mt-10 sm:mt-12">
           <div className="mx-auto max-w-3xl">
-            <h3 className="text-lg font-semibold">Topics we&apos;re working on</h3>
-            <ul className="mt-4 flex flex-col gap-3">
+            <h3 className="text-base font-semibold sm:text-lg">Topics we&apos;re working on</h3>
+            <ul className="mt-4 flex flex-col gap-2 sm:gap-3">
               {articleIdeas.map((idea) => (
                 <li key={idea} className="flex items-start gap-3 rounded-xl border border-border p-4 text-sm text-muted-foreground">
-                  <FileText className="mt-0.5 size-4 shrink-0 text-brand-teal" />
+                  <FileText className="mt-0.5 size-4 shrink-0 text-primary" />
                   {idea}
                 </li>
               ))}

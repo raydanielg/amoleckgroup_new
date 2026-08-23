@@ -50,7 +50,7 @@ export default function AboutPage() {
       />
 
       <Section>
-        <div className="grid gap-12 lg:grid-cols-2">
+        <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
           <RevealOnScroll>
             <div className="aspect-[4/3] overflow-hidden rounded-2xl">
               <img
@@ -61,10 +61,10 @@ export default function AboutPage() {
             </div>
           </RevealOnScroll>
           <RevealOnScroll delay={150} className="flex flex-col justify-center gap-4">
-            <p className="text-lg text-muted-foreground text-pretty">
-              Amoleck Group has supplied and serviced medical equipment in Tanzania since [YEAR]. We started because facilities kept telling us the same story: the machine arrived, nobody installed it properly, and when it broke the supplier had moved on.
+            <p className="text-base text-muted-foreground text-pretty sm:text-lg">
+              Amoleck Group has supplied and serviced medical equipment in Tanzania since 2015. We started because facilities kept telling us the same story: the machine arrived, nobody installed it properly, and when it broke the supplier had moved on.
             </p>
-            <p className="text-lg text-muted-foreground text-pretty">
+            <p className="text-base text-muted-foreground text-pretty sm:text-lg">
               So we built the company around the part everyone else treats as an afterthought — what happens after delivery.
             </p>
           </RevealOnScroll>
@@ -79,12 +79,12 @@ export default function AboutPage() {
             title="Three principles we won't bend on."
           />
         </RevealOnScroll>
-        <div className="mt-16 grid gap-4 md:grid-cols-3">
+        <div className="mt-10 grid gap-3 sm:mt-12 sm:grid-cols-2 sm:gap-4 md:grid-cols-3">
           {beliefs.map((belief, idx) => (
             <RevealOnScroll key={belief.title} delay={idx * 80}>
-              <div className="flex h-full flex-col gap-3 rounded-xl border border-border p-6">
-                <CheckCircle2 className="size-5 text-brand-teal" />
-                <h3 className="text-lg font-semibold">{belief.title}</h3>
+              <div className="flex h-full flex-col gap-3 rounded-xl border border-border p-5 sm:p-6">
+                <CheckCircle2 className="size-5 text-primary" />
+                <h3 className="text-base font-semibold sm:text-lg">{belief.title}</h3>
                 <p className="text-sm text-muted-foreground">{belief.description}</p>
               </div>
             </RevealOnScroll>
@@ -101,19 +101,19 @@ export default function AboutPage() {
             description="You can take one of these or all four. What you cannot do is end up with three vendors blaming each other while a theatre sits idle."
           />
         </RevealOnScroll>
-        <div className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-10 grid gap-3 sm:mt-12 sm:grid-cols-2 sm:gap-4 lg:grid-cols-4">
           {services.map((service, idx) => {
             const Icon = serviceIcons[service.icon] ?? HeartPulse
             return (
               <RevealOnScroll key={service.slug} delay={idx * 80}>
                 <Link
                   href={service.cta.href}
-                  className="group flex h-full flex-col gap-3 rounded-xl border border-border p-6 transition-all duration-300 hover:-translate-y-1 hover:border-brand-teal/30 hover:shadow-lg hover:shadow-brand-teal/5"
+                  className="group flex h-full flex-col gap-3 rounded-xl border border-border bg-card p-5 sm:p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5"
                 >
-                  <Icon className="size-6 text-brand-teal transition-transform duration-300 group-hover:scale-110" />
-                  <h3 className="text-lg font-semibold">{service.title}</h3>
+                  <Icon className="size-6 text-primary transition-transform duration-300 group-hover:scale-110" />
+                  <h3 className="text-base font-semibold sm:text-lg">{service.title}</h3>
                   <p className="text-sm text-muted-foreground">{service.description}</p>
-                  <span className="mt-2 inline-flex items-center gap-1 text-sm font-medium text-brand-teal">
+                  <span className="mt-2 inline-flex items-center gap-1 text-sm font-medium text-primary">
                     Learn More
                     <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
                   </span>
@@ -133,47 +133,47 @@ export default function AboutPage() {
             description="Experienced professionals committed to reliable medical equipment supply, installation and after-sales support."
           />
         </RevealOnScroll>
-        <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-10 grid grid-cols-1 gap-5 sm:mt-14 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
           {teamMembers.map((member, idx) => (
             <RevealOnScroll key={member.name} delay={idx * 100}>
-              <div className="group overflow-hidden rounded-2xl border border-border bg-card transition-all duration-300 hover:-translate-y-2 hover:border-brand-teal/30 hover:shadow-xl hover:shadow-brand-teal/10">
-                <div className="relative aspect-[3/4] overflow-hidden bg-muted">
+              <div className="group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/10">
+                <div className="relative aspect-[4/5] overflow-hidden bg-muted">
                   <img
                     src={member.image}
                     alt={`${member.name} — ${member.title} at Amoleck Group`}
                     className="size-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-brand-ink/80 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                   <div className="absolute bottom-0 left-0 right-0 flex translate-y-4 gap-2 px-4 pb-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
                     <a
                       href={member.linkedin}
-                      className="flex size-9 items-center justify-center rounded-full bg-brand-cream/90 text-brand-ink transition-colors hover:bg-brand-teal hover:text-brand-cream"
+                      className="flex size-9 items-center justify-center rounded-full bg-background/90 text-foreground transition-colors hover:bg-primary hover:text-primary-foreground"
                       aria-label={`${member.name} on LinkedIn`}
                     >
                       <LinkedinIcon className="size-4" />
                     </a>
                     <a
                       href={`mailto:${member.email}`}
-                      className="flex size-9 items-center justify-center rounded-full bg-brand-cream/90 text-brand-ink transition-colors hover:bg-brand-teal hover:text-brand-cream"
+                      className="flex size-9 items-center justify-center rounded-full bg-background/90 text-foreground transition-colors hover:bg-primary hover:text-primary-foreground"
                       aria-label={`Email ${member.name}`}
                     >
                       <Mail className="size-4" />
                     </a>
                   </div>
                 </div>
-                <div className="p-5">
-                  <h3 className="text-lg font-semibold">{member.name}</h3>
-                  <p className="mt-1 text-sm font-medium text-brand-teal">{member.title}</p>
-                  <p className="mt-3 text-sm text-muted-foreground">{member.bio}</p>
+                <div className="flex flex-1 flex-col p-5">
+                  <h3 className="text-base font-semibold sm:text-lg">{member.name}</h3>
+                  <p className="mt-1 text-sm font-medium text-primary">{member.title}</p>
+                  <p className="mt-3 line-clamp-3 text-sm text-muted-foreground">{member.bio}</p>
                 </div>
               </div>
             </RevealOnScroll>
           ))}
         </div>
-        <RevealOnScroll delay={400} className="mt-12 text-center">
+        <RevealOnScroll delay={400} className="mt-10 text-center sm:mt-12">
           <Link
             href="/about/team"
-            className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 text-sm font-medium transition-colors hover:border-brand-teal hover:text-brand-teal"
+            className="inline-flex items-center gap-2 rounded-md border border-border px-5 py-2.5 text-sm font-medium transition-colors hover:border-primary hover:text-primary sm:px-6 sm:py-3"
           >
             View full team profiles
             <ArrowRight className="size-4" />
@@ -184,13 +184,13 @@ export default function AboutPage() {
       {/* Coverage */}
       <Section>
         <RevealOnScroll>
-          <div className="rounded-2xl border border-border p-8 lg:p-12">
+          <div className="rounded-2xl border border-border p-6 sm:p-8 lg:p-12">
             <div className="flex items-start gap-4">
-              <MapPin className="mt-1 size-6 shrink-0 text-brand-teal" />
+              <MapPin className="mt-1 size-6 shrink-0 text-primary" />
               <div>
-                <h2 className="text-2xl font-semibold">Coverage</h2>
-                <p className="mt-2 text-muted-foreground">
-                  Head office in [CITY], with technicians covering [REGIONS]. Emergency callout available nationwide.
+                <h2 className="text-xl font-semibold sm:text-2xl">Coverage</h2>
+                <p className="mt-2 text-sm text-muted-foreground sm:text-base">
+                  Head office in Dar es Salaam, with technicians covering Dar es Salaam, Arusha, Mwanza, Dodoma, Mbeya, and Zanzibar. Emergency callout available nationwide.
                 </p>
               </div>
             </div>

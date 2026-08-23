@@ -29,7 +29,7 @@ export default function ServicesPage() {
       />
 
       <Section>
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="grid gap-4 sm:gap-6 sm:grid-cols-2">
           {services.map((service, idx) => {
             const Icon = serviceIcons[service.icon] ?? HeartPulse
             return (
@@ -42,21 +42,21 @@ export default function ServicesPage() {
                       className="size-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                   </div>
-                  <div className="p-6">
-                    <Icon className="size-6 text-brand-teal" />
-                    <h3 className="mt-3 text-lg font-semibold">{service.title}</h3>
+                  <div className="p-4 sm:p-5 sm:p-6">
+                    <Icon className="size-5 text-primary sm:size-6" />
+                    <h3 className="mt-3 text-base font-semibold sm:text-lg">{service.title}</h3>
                     <p className="mt-2 text-sm text-muted-foreground">{service.description}</p>
                     <ul className="mt-4 flex flex-col gap-2">
                       {service.items.map((item) => (
                         <li key={item} className="flex items-center gap-2 text-sm text-muted-foreground">
-                          <CheckCircle2 className="size-4 text-brand-teal" />
+                          <CheckCircle2 className="size-4 text-primary" />
                           {item}
                         </li>
                       ))}
                     </ul>
                     <Link
                       href={service.cta.href}
-                      className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-brand-teal"
+                      className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-primary"
                     >
                       {service.cta.label}
                       <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />

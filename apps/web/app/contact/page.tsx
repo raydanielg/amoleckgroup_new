@@ -25,10 +25,10 @@ export default function ContactPage() {
       />
 
       <Section>
-        <div className="grid gap-8 lg:grid-cols-2">
+        <div className="grid gap-6 lg:grid-cols-2 lg:gap-8">
           {/* Contact Information */}
           <RevealOnScroll>
-            <div className="flex h-full flex-col gap-6 rounded-2xl border border-border p-8">
+            <div className="flex h-full flex-col gap-6 rounded-2xl border border-border p-6 sm:p-8">
               <div>
                 <h3 className="text-lg font-semibold">{siteConfig.name}</h3>
                 <p className="text-sm text-muted-foreground">{siteConfig.location}</p>
@@ -38,32 +38,32 @@ export default function ContactPage() {
 
               <div className="flex flex-col gap-4">
                 <div className="flex items-start gap-3">
-                  <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-brand-teal/10">
-                    <Phone className="size-5 text-brand-teal" />
+                  <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-primary/10">
+                    <Phone className="size-5 text-primary" />
                   </div>
                   <div>
                     <p className="text-sm font-medium">Phone</p>
-                    <a href={`tel:${siteConfig.phone.replace(/\s/g, "")}`} className="text-sm text-muted-foreground hover:text-brand-teal">
+                    <a href={`tel:${siteConfig.phone.replace(/\s/g, "")}`} className="text-sm text-muted-foreground hover:text-primary">
                       {siteConfig.phone}
                     </a>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-brand-teal/10">
-                    <Mail className="size-5 text-brand-teal" />
+                  <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-primary/10">
+                    <Mail className="size-5 text-primary" />
                   </div>
                   <div>
                     <p className="text-sm font-medium">Email</p>
-                    <a href={`mailto:${siteConfig.email}`} className="text-sm text-muted-foreground hover:text-brand-teal">
+                    <a href={`mailto:${siteConfig.email}`} className="text-sm text-muted-foreground hover:text-primary">
                       {siteConfig.email}
                     </a>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-brand-teal/10">
-                    <MapPin className="size-5 text-brand-teal" />
+                  <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-primary/10">
+                    <MapPin className="size-5 text-primary" />
                   </div>
                   <div>
                     <p className="text-sm font-medium">Address</p>
@@ -72,8 +72,8 @@ export default function ContactPage() {
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-brand-teal/10">
-                    <Clock className="size-5 text-brand-teal" />
+                  <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-primary/10">
+                    <Clock className="size-5 text-primary" />
                   </div>
                   <div>
                     <p className="text-sm font-medium">Business Hours</p>
@@ -87,19 +87,19 @@ export default function ContactPage() {
               <div>
                 <p className="mb-3 text-sm font-medium">Connect with us</p>
                 <div className="flex gap-3">
-                  <a href={siteConfig.social.facebook} className="flex size-10 items-center justify-center rounded-full border border-border transition-colors hover:border-brand-teal hover:text-brand-teal" aria-label="Facebook">
+                  <a href={siteConfig.social.facebook} className="flex size-10 items-center justify-center rounded-full border border-border transition-colors hover:border-primary hover:text-primary" aria-label="Facebook">
                     <FacebookIcon className="size-4" />
                   </a>
-                  <a href={siteConfig.social.instagram} className="flex size-10 items-center justify-center rounded-full border border-border transition-colors hover:border-brand-teal hover:text-brand-teal" aria-label="Instagram">
+                  <a href={siteConfig.social.instagram} className="flex size-10 items-center justify-center rounded-full border border-border transition-colors hover:border-primary hover:text-primary" aria-label="Instagram">
                     <InstagramIcon className="size-4" />
                   </a>
-                  <a href={siteConfig.social.linkedin} className="flex size-10 items-center justify-center rounded-full border border-border transition-colors hover:border-brand-teal hover:text-brand-teal" aria-label="LinkedIn">
+                  <a href={siteConfig.social.linkedin} className="flex size-10 items-center justify-center rounded-full border border-border transition-colors hover:border-primary hover:text-primary" aria-label="LinkedIn">
                     <LinkedinIcon className="size-4" />
                   </a>
-                  <a href={siteConfig.social.twitter} className="flex size-10 items-center justify-center rounded-full border border-border transition-colors hover:border-brand-teal hover:text-brand-teal" aria-label="Twitter">
+                  <a href={siteConfig.social.twitter} className="flex size-10 items-center justify-center rounded-full border border-border transition-colors hover:border-primary hover:text-primary" aria-label="Twitter">
                     <TwitterIcon className="size-4" />
                   </a>
-                  <a href={`https://wa.me/${siteConfig.whatsapp}`} className="flex size-10 items-center justify-center rounded-full border border-border transition-colors hover:border-brand-teal hover:text-brand-teal" aria-label="WhatsApp">
+                  <a href={`https://wa.me/${siteConfig.whatsapp}`} className="flex size-10 items-center justify-center rounded-full border border-border transition-colors hover:border-primary hover:text-primary" aria-label="WhatsApp">
                     <MessageCircle className="size-4" />
                   </a>
                 </div>
@@ -109,11 +109,11 @@ export default function ContactPage() {
 
           {/* Contact Form */}
           <RevealOnScroll delay={150}>
-            <div className="flex flex-col gap-6 rounded-2xl border border-border p-8">
+            <div className="flex flex-col gap-6 rounded-2xl border border-border p-5 sm:p-6 lg:p-8">
               <div>
-                <h3 className="text-lg font-semibold">Send Us a Message</h3>
-                <div className="mt-2 flex items-center gap-2 text-sm text-brand-teal">
-                  <span className="size-2 rounded-full bg-brand-teal" />
+                <h3 className="text-base font-semibold sm:text-lg">Send Us a Message</h3>
+                <div className="mt-2 flex items-center gap-2 text-sm text-primary">
+                  <span className="size-2 rounded-full bg-primary" />
                   We reply within 2 working hours
                 </div>
               </div>
@@ -146,7 +146,7 @@ export default function ContactPage() {
                   <Label htmlFor="contact-message">Message</Label>
                   <Textarea id="contact-message" placeholder="Your message..." rows={5} required />
                 </div>
-                <Button type="submit" size="lg" className="w-full rounded-full">
+                <Button type="submit" className="w-full rounded-md">
                   <Send className="size-4" />
                   Send message
                 </Button>
@@ -164,7 +164,7 @@ export default function ContactPage() {
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31716.7103836!2d39.2641!3d-6.8160!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwNDgnNTcuNiJTIDM5wrAxNSc1MC44IkU!5e0!3m2!1sen!2stz!4v1700000000000!5m2!1sen!2stz"
                 width="100%"
-                height="400"
+                height="300"
                 style={{ border: 0 }}
                 allowFullScreen
                 loading="lazy"

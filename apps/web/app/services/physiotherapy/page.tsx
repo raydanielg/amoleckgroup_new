@@ -34,7 +34,7 @@ export default function ServicePhysiotherapyPage() {
       <Section>
         <div className="mx-auto max-w-4xl">
           <RevealOnScroll>
-            <div className="grid gap-12 lg:grid-cols-2">
+            <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
               <div>
                 <img
                   src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&q=80"
@@ -45,7 +45,7 @@ export default function ServicePhysiotherapyPage() {
               <div className="flex flex-col justify-center gap-4">
                 <Link
                   href="/physiotherapy"
-                  className={cn(buttonVariants({ size: "lg" }), "w-fit rounded-full")}
+                  className={cn(buttonVariants({ size: "sm" }), "w-fit rounded-md")}
                 >
                   Browse physiotherapy equipment
                   <ArrowRight className="size-4" />
@@ -59,13 +59,13 @@ export default function ServicePhysiotherapyPage() {
       <Section className="bg-muted/30">
         <div className="mx-auto max-w-3xl">
           <RevealOnScroll>
-            <span className="text-xs font-medium uppercase tracking-[0.2em] text-brand-teal">Typical clinic package</span>
-            <h2 className="mt-4 text-2xl font-semibold">Everything you need to open</h2>
-            <div className="mt-8 grid gap-3 sm:grid-cols-2">
+            <span className="text-xs font-medium uppercase tracking-[0.2em] text-primary">Typical clinic package</span>
+            <h2 className="mt-3 text-xl font-semibold sm:mt-4 sm:text-2xl">Everything you need to open</h2>
+            <div className="mt-6 grid gap-3 sm:mt-8 sm:grid-cols-2">
               {clinicPackage.map((item, idx) => (
                 <RevealOnScroll key={item} delay={idx * 50}>
                   <div className="flex items-center gap-3 rounded-xl border border-border p-4">
-                    <CheckCircle2 className="size-5 shrink-0 text-brand-teal" />
+                    <CheckCircle2 className="size-5 shrink-0 text-primary" />
                     <span className="text-sm">{item}</span>
                   </div>
                 </RevealOnScroll>

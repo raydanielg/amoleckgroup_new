@@ -6,8 +6,8 @@ export const siteConfig = {
     "Supply, installation and servicing of medical, physiotherapy and diagnostic equipment for hospitals and clinics across Tanzania.",
   location: "Dar es Salaam, Tanzania",
   phone: "+255 626 371 854",
-  email: "info@amoleck.co.tz",
-  website: "amoleck.co.tz",
+  email: "info@afyavifaa.co.tz",
+  website: "afyavifaa.co.tz",
   whatsapp: "+255626371854",
   hours: "Monday - Friday: 8:00 AM - 5:00 PM | Saturday: 9:00 AM - 1:00 PM",
   social: {
@@ -34,7 +34,6 @@ export const navLinks = [
   { label: "Medical Equipment", href: "/equipment" },
   { label: "Physiotherapy", href: "/physiotherapy" },
   { label: "Technology", href: "/technology" },
-  { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ]
 
@@ -308,9 +307,9 @@ export const quoteOptions = [
 ]
 
 export const statsNumbers = [
-  { value: "[X]+", label: "Years serving Tanzania" },
-  { value: "[X]+", label: "Installations completed" },
-  { value: "[X]", label: "Regions covered" },
+  { value: "10+", label: "Years serving Tanzania" },
+  { value: "500+", label: "Installations completed" },
+  { value: "6", label: "Regions covered" },
   { value: "24/7", label: "Emergency support" },
 ]
 
@@ -322,7 +321,7 @@ export const teamMembers = [
     image: "/team/Amos Paschal CEO director .jpeg",
     bio: "Leads Amoleck Group with a vision for reliable medical equipment supply and after-sales support across East Africa. Over a decade of experience in healthcare procurement and facility fit-out.",
     linkedin: "#",
-    email: "amos@amoleck.co.tz",
+    email: "amos@afyavifaa.co.tz",
   },
   {
     name: "Ezra Daniel",
@@ -331,7 +330,7 @@ export const teamMembers = [
     image: "/team/Ezra Daniel CTO director.jpeg",
     bio: "Oversees healthcare technology integration, clinical systems and diagnostic data infrastructure. Ensures every piece of equipment talks to the systems around it.",
     linkedin: "#",
-    email: "ezra@amoleck.co.tz",
+    email: "ezra@afyavifaa.co.tz",
   },
   {
     name: "Newton Nyema",
@@ -340,7 +339,7 @@ export const teamMembers = [
     image: "/team/newton nyema CIO director.jpeg",
     bio: "Drives information strategy and digital transformation across the organisation. Manages data security, systems architecture and technology partnerships.",
     linkedin: "#",
-    email: "newton@amoleck.co.tz",
+    email: "newton@afyavifaa.co.tz",
   },
   {
     name: "Salome Thadeus",
@@ -349,7 +348,7 @@ export const teamMembers = [
     image: "/team/Salome thadeus sales maager.jpeg",
     bio: "Leads client relationships across hospitals, clinics and physiotherapy practices. Ensures every quote is specified correctly and delivered on time.",
     linkedin: "#",
-    email: "salome@amoleck.co.tz",
+    email: "salome@afyavifaa.co.tz",
   },
 ]
 

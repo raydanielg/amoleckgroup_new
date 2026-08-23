@@ -26,7 +26,7 @@ export default function ServiceEquipmentPage() {
       <Section>
         <div className="mx-auto max-w-4xl">
           <RevealOnScroll>
-            <div className="grid gap-12 lg:grid-cols-2">
+            <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
               <div>
                 <img
                   src="https://images.unsplash.com/photo-1587854692152-cbe611db5902?w=800&q=80"
@@ -37,7 +37,7 @@ export default function ServiceEquipmentPage() {
               <div className="flex flex-col justify-center gap-4">
                 <Link
                   href="/equipment"
-                  className={cn(buttonVariants({ size: "lg" }), "w-fit rounded-full")}
+                  className={cn(buttonVariants({ size: "sm" }), "w-fit rounded-md")}
                 >
                   Browse equipment
                   <ArrowRight className="size-4" />
@@ -51,13 +51,13 @@ export default function ServiceEquipmentPage() {
       <Section className="bg-muted/30">
         <div className="mx-auto max-w-3xl">
           <RevealOnScroll>
-            <span className="text-xs font-medium uppercase tracking-[0.2em] text-brand-teal">Good fit for</span>
-            <h2 className="mt-4 text-2xl font-semibold">When to call us</h2>
-            <div className="mt-8 grid gap-3 sm:grid-cols-2">
+            <span className="text-xs font-medium uppercase tracking-[0.2em] text-primary">Good fit for</span>
+            <h2 className="mt-3 text-xl font-semibold sm:mt-4 sm:text-2xl">When to call us</h2>
+            <div className="mt-6 grid gap-3 sm:mt-8 sm:grid-cols-2">
               {["New clinic setups", "Department expansions", "Equipment replacement cycles", "Tender responses"].map((item, idx) => (
                 <RevealOnScroll key={item} delay={idx * 50}>
                   <div className="flex items-center gap-3 rounded-xl border border-border p-4">
-                    <CheckCircle2 className="size-5 shrink-0 text-brand-teal" />
+                    <CheckCircle2 className="size-5 shrink-0 text-primary" />
                     <span className="text-sm">{item}</span>
                   </div>
                 </RevealOnScroll>
@@ -69,16 +69,16 @@ export default function ServiceEquipmentPage() {
 
       <Section>
         <RevealOnScroll>
-          <span className="text-xs font-medium uppercase tracking-[0.2em] text-brand-teal">Categories</span>
-          <h2 className="mt-4 text-2xl font-semibold">Equipment Categories</h2>
-          <p className="mt-2 text-muted-foreground">Browse our equipment categories and request a quote for what you need.</p>
+          <span className="text-xs font-medium uppercase tracking-[0.2em] text-primary">Categories</span>
+          <h2 className="mt-3 text-xl font-semibold sm:mt-4 sm:text-2xl">Equipment Categories</h2>
+          <p className="mt-2 text-sm text-muted-foreground sm:text-base">Browse our equipment categories and request a quote for what you need.</p>
         </RevealOnScroll>
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-8 grid gap-4 sm:mt-12 sm:grid-cols-2 lg:grid-cols-3 sm:gap-6">
           {equipmentCategories.map((cat, idx) => (
             <RevealOnScroll key={cat.slug} delay={idx * 80}>
               <Link
                 href={`/equipment#${cat.slug}`}
-                className="group block h-full overflow-hidden rounded-2xl border border-border transition-all duration-300 hover:-translate-y-1 hover:border-brand-teal/30 hover:shadow-lg hover:shadow-brand-teal/5"
+                className="group block h-full overflow-hidden rounded-2xl border border-border transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5"
               >
                 <div className="aspect-[16/10] overflow-hidden">
                   <img
@@ -87,10 +87,10 @@ export default function ServiceEquipmentPage() {
                     className="size-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
-                <div className="p-4">
-                  <h3 className="text-lg font-semibold">{cat.name}</h3>
+                <div className="p-4 sm:p-5">
+                  <h3 className="text-base font-semibold sm:text-lg">{cat.name}</h3>
                   <p className="mt-2 text-sm text-muted-foreground">{cat.description}</p>
-                  <span className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-brand-teal">
+                  <span className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-primary">
                     View Products
                     <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
                   </span>

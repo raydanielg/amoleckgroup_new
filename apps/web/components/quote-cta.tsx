@@ -12,19 +12,19 @@ export function QuoteCTA({
   description?: string
 }) {
   return (
-    <section className="bg-muted/30 py-20 lg:py-28">
+    <section className="bg-muted/30 py-12 sm:py-16 lg:py-24">
       <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
         <RevealOnScroll>
-          <h2 className="text-3xl font-semibold tracking-tight text-foreground text-balance lg:text-5xl">
+          <h2 className="text-2xl font-semibold tracking-tight text-foreground text-balance sm:text-3xl lg:text-4xl">
             {title}
           </h2>
-          <p className="mx-auto mt-6 max-w-2xl text-base text-muted-foreground text-pretty lg:text-lg">
+          <p className="mx-auto mt-4 max-w-2xl text-sm text-muted-foreground text-pretty sm:mt-6 sm:text-base lg:text-lg">
             {description}
           </p>
-          <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <div className="mt-8 flex flex-col items-center justify-center gap-2.5 sm:flex-row sm:gap-3">
             <Link
               href="/request-quote"
-              className={cn(buttonVariants({ size: "lg" }), "rounded-full")}
+              className={cn(buttonVariants({ size: "sm" }), "rounded-md")}
             >
               Request a Quote
               <ArrowRight className="size-4" />
@@ -32,8 +32,8 @@ export function QuoteCTA({
             <Link
               href="/contact"
               className={cn(
-                buttonVariants({ variant: "outline", size: "lg" }),
-                "rounded-full"
+                buttonVariants({ variant: "outline", size: "sm" }),
+                "rounded-md"
               )}
             >
               <Phone className="size-4" />

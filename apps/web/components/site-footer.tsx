@@ -21,7 +21,6 @@ const exploreLinks = [
   { label: "Physiotherapy", href: "/physiotherapy" },
   { label: "Technology", href: "/technology" },
   { label: "About Us", href: "/about" },
-  { label: "Insights & Blog", href: "/blog" },
 ]
 
 function FooterLink({ href, children }: { href: string; children: React.ReactNode }) {
@@ -51,17 +50,17 @@ export function SiteFooter() {
     <footer className="relative overflow-hidden border-t border-border bg-muted/30 text-foreground">
       {/* CTA strip */}
       <div className="relative z-10 border-b border-border">
-        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
-          <div className="flex flex-col items-start gap-10 lg:flex-row lg:items-center lg:justify-between">
+        <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+          <div className="flex flex-col items-start gap-8 lg:flex-row lg:items-center lg:justify-between">
             <RevealOnScroll className="max-w-2xl">
               <span className="mb-5 inline-flex items-center gap-2 rounded-full border border-border px-3.5 py-1.5 text-xs font-medium text-muted-foreground">
                 <span className="size-1.5 rounded-full bg-primary" />
                 Replies within 2 working hours
               </span>
-              <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl text-foreground">
+              <h2 className="text-xl font-semibold tracking-tight sm:text-2xl lg:text-4xl text-foreground">
                 Let&apos;s equip your facility properly.
               </h2>
-              <p className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground">
+              <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted-foreground sm:mt-5 sm:text-base">
                 Tell us what you need — a single device, a full department fit-out, or a service contract for equipment you already own. You will get a written quote, not a sales call.
               </p>
             </RevealOnScroll>
@@ -70,14 +69,14 @@ export function SiteFooter() {
               <div className="flex flex-col gap-3 sm:flex-row lg:flex-col xl:flex-row">
                 <Link
                   href="/request-quote"
-                  className={cn(buttonVariants({ size: "lg" }), "rounded-full")}
+                  className={cn(buttonVariants({ size: "sm" }), "rounded-md")}
                 >
                   Request a quote
                   <ArrowRight className="size-4" />
                 </Link>
                 <a
                   href={`tel:${siteConfig.phone.replace(/\s/g, "")}`}
-                  className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full border border-border px-7 py-3.5 text-sm font-semibold text-foreground transition-colors hover:border-primary hover:text-primary"
+                  className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md border border-border px-5 py-2.5 text-sm font-semibold text-foreground transition-colors hover:border-primary hover:text-primary sm:px-7 sm:py-3.5"
                 >
                   <Phone className="size-4" />
                   {siteConfig.phone}
@@ -104,29 +103,28 @@ export function SiteFooter() {
       </div>
 
       {/* Main columns */}
-      <div className="relative z-10 mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-12 lg:gap-8">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-16 lg:px-8">
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-12 lg:gap-8">
           {/* Brand */}
           <div className="lg:col-span-4">
             <RevealOnScroll>
               <Link href="/" className="inline-flex items-center gap-2.5">
-                <span className="grid h-10 w-10 place-items-center rounded-xl bg-primary text-sm font-bold text-primary-foreground">
-                  A
-                </span>
-                <span className="text-lg font-semibold tracking-tight text-foreground">
-                  {siteConfig.name}
-                </span>
+                <img
+                  src="/images/6iYLsnGOmFXtOs7YU30m01K6EB23zXr4DY8YPuCL-removebg-preview.png"
+                  alt={siteConfig.name}
+                  className="h-11 w-auto object-contain"
+                />
               </Link>
             </RevealOnScroll>
 
             <RevealOnScroll delay={90}>
-              <p className="mt-5 max-w-sm text-sm leading-relaxed text-muted-foreground">
+              <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
                 {siteConfig.description}
               </p>
             </RevealOnScroll>
 
             <RevealOnScroll delay={180}>
-              <div className="mt-8 flex flex-wrap gap-2.5">
+              <div className="mt-6 flex flex-wrap gap-2.5 sm:mt-8">
                 <Link href={siteConfig.social.facebook} className="grid h-10 w-10 place-items-center rounded-full border border-border text-muted-foreground transition-colors hover:border-primary hover:text-primary" aria-label="Facebook">
                   <FacebookIcon className="size-4" />
                 </Link>
@@ -236,7 +234,7 @@ export function SiteFooter() {
 
       {/* Bottom bar */}
       <div className="relative z-10 border-t border-border">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-4 py-6 text-xs text-muted-foreground sm:flex-row sm:px-6 lg:px-8">
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-4 py-5 text-xs text-muted-foreground sm:flex-row sm:px-6 lg:px-8">
           <p>&copy; {year} {siteConfig.name}. All rights reserved.</p>
           <nav className="flex items-center gap-6">
             <Link href="/privacy-policy" className="transition-colors hover:text-foreground">

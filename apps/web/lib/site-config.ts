@@ -21,7 +21,7 @@ export const site = {
     phone: "+255 626 371 854",
     phoneHref: "tel:+255626371854",
     whatsapp: "https://wa.me/255626371854",
-    email: "info@amoleck.co.tz",
+    email: "info@afyavifaa.co.tz",
     address: {
       line1: "Dar es Salaam", // TODO
       line2: "Tanzania",

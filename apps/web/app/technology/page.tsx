@@ -24,18 +24,18 @@ export default function TechnologyPage() {
 
       <Section>
         <RevealOnScroll>
-          <span className="text-xs font-medium uppercase tracking-[0.2em] text-brand-teal">What we do</span>
-          <h2 className="mt-4 text-2xl font-semibold">Our technology services</h2>
-          <p className="mt-2 text-muted-foreground">Clinical systems, diagnostic integration and technical support.</p>
+          <span className="text-xs font-medium uppercase tracking-[0.2em] text-primary">What we do</span>
+          <h2 className="mt-3 text-xl font-semibold sm:mt-4 sm:text-2xl">Our technology services</h2>
+          <p className="mt-2 text-sm text-muted-foreground sm:text-base">Clinical systems, diagnostic integration and technical support.</p>
         </RevealOnScroll>
-        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 grid gap-4 sm:mt-12 sm:grid-cols-2 lg:grid-cols-3">
           {technologyCards.map((tech, idx) => {
             const Icon = techIcons[idx % techIcons.length]!
             return (
               <RevealOnScroll key={tech.title} delay={idx * 80}>
-                <div className="group flex h-full flex-col gap-3 rounded-xl border border-border p-6 transition-all duration-300 hover:-translate-y-1 hover:border-brand-teal/30 hover:shadow-lg hover:shadow-brand-teal/5">
-                  <Icon className="size-6 text-brand-teal transition-transform duration-300 group-hover:scale-110" />
-                  <h3 className="text-lg font-semibold">{tech.title}</h3>
+                <div className="group flex h-full flex-col gap-3 rounded-xl border border-border p-5 sm:p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5">
+                  <Icon className="size-6 text-primary transition-transform duration-300 group-hover:scale-110" />
+                  <h3 className="text-base font-semibold sm:text-lg">{tech.title}</h3>
                   <p className="text-sm text-muted-foreground">{tech.description}</p>
                 </div>
               </RevealOnScroll>
@@ -45,7 +45,7 @@ export default function TechnologyPage() {
       </Section>
 
       <Section className="bg-muted/30">
-        <div className="grid gap-12 lg:grid-cols-2">
+        <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
           <RevealOnScroll>
             <div className="aspect-[4/3] overflow-hidden rounded-2xl">
               <img
@@ -56,8 +56,8 @@ export default function TechnologyPage() {
             </div>
           </RevealOnScroll>
           <RevealOnScroll delay={150} className="flex flex-col justify-center gap-4">
-            <h2 className="text-2xl font-semibold">We support what we didn&apos;t supply</h2>
-            <p className="text-muted-foreground">
+            <h2 className="text-xl font-semibold sm:text-2xl">We support what we didn&apos;t supply</h2>
+            <p className="text-sm text-muted-foreground sm:text-base">
               If you have equipment from another supplier and need integration, configuration or technical support, we can help. We work around your existing estate rather than asking you to replace it.
             </p>
             <ul className="flex flex-col gap-2">
@@ -68,7 +68,7 @@ export default function TechnologyPage() {
                 "Ongoing technical support",
               ].map((item) => (
                 <li key={item} className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <ArrowRight className="size-4 text-brand-teal" />
+                  <ArrowRight className="size-4 text-primary" />
                   {item}
                 </li>
               ))}

@@ -32,16 +32,16 @@ export default function RequestQuotePage() {
         <div className="mx-auto max-w-2xl">
           {submitted ? (
             <RevealOnScroll>
-              <div className="rounded-2xl border border-border p-12 text-center">
-                <div className="mx-auto mb-6 flex size-16 items-center justify-center rounded-full bg-brand-teal/10">
-                  <CheckCircle2 className="size-8 text-brand-teal" />
+              <div className="rounded-2xl border border-border p-6 text-center sm:p-12">
+                <div className="mx-auto mb-6 flex size-16 items-center justify-center rounded-full bg-primary/10">
+                  <CheckCircle2 className="size-8 text-primary" />
                 </div>
                 <h2 className="text-2xl font-semibold">Thank You!</h2>
                 <p className="mt-4 text-muted-foreground">
                   Received. You&apos;ll have a written quote within one working day.
                 </p>
                 <Button
-                  className="mt-8 rounded-full"
+                  className="mt-8 rounded-md"
                   onClick={() => setSubmitted(false)}
                   variant="outline"
                 >
@@ -51,12 +51,12 @@ export default function RequestQuotePage() {
             </RevealOnScroll>
           ) : (
             <RevealOnScroll>
-              <div className="rounded-2xl border border-border p-8">
+              <div className="rounded-2xl border border-border p-6 sm:p-8">
                 <h3 className="text-lg font-semibold">Request a Quote</h3>
                 <p className="mt-1 text-sm text-muted-foreground">
                   Fill out the form below and we&apos;ll come back with a written quote.
                 </p>
-                <form onSubmit={handleSubmit} className="mt-6 flex flex-col gap-6">
+                <form onSubmit={handleSubmit} className="mt-6 flex flex-col gap-5 sm:gap-6">
                   <div className="flex flex-col gap-3">
                     <Label>What are you interested in?</Label>
                     <RadioGroup defaultValue="Medical Equipment">
@@ -134,7 +134,7 @@ export default function RequestQuotePage() {
                     />
                   </div>
 
-                  <Button type="submit" size="lg" className="w-full rounded-full">
+                  <Button type="submit" className="w-full rounded-md">
                     <Send className="size-4" />
                     Send my request
                   </Button>

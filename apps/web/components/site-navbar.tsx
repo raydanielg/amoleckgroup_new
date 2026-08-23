@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation"
 import { Menu, X, Phone } from "lucide-react"
 import { cn } from "@workspace/ui/lib/utils"
 import { buttonVariants } from "@workspace/ui/components/button"
+import { ThemeToggle } from "@/components/theme-toggle"
 import { navLinks, siteConfig } from "@/lib/data"
 
 export function SiteNavbar() {
@@ -43,22 +44,14 @@ export function SiteNavbar() {
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-4 sm:px-6 lg:px-8">
           <Link href="/" className="inline-flex shrink-0 items-center gap-2.5">
-            <span
+            <img
+              src="/images/6iYLsnGOmFXtOs7YU30m01K6EB23zXr4DY8YPuCL-removebg-preview.png"
+              alt={siteConfig.name}
               className={cn(
-                "grid place-items-center rounded-xl bg-primary font-bold text-primary-foreground transition-all duration-500",
-                scrolled ? "h-9 w-9 text-sm" : "h-11 w-11 text-base"
+                "w-auto object-contain transition-all duration-500",
+                scrolled ? "h-9" : "h-11"
               )}
-            >
-              A
-            </span>
-            <span
-              className={cn(
-                "font-semibold tracking-tight transition-all duration-500",
-                scrolled ? "text-base" : "text-lg"
-              )}
-            >
-              {siteConfig.name}
-            </span>
+            />
           </Link>
 
           <nav className="hidden items-center gap-1 xl:flex">
@@ -87,10 +80,11 @@ export function SiteNavbar() {
             })}
           </nav>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3">
+            <ThemeToggle />
             <Link
               href="/request-quote"
-              className={cn(buttonVariants({ size: "sm" }), "hidden sm:inline-flex rounded-full")}
+              className={cn(buttonVariants({ size: "sm" }), "hidden sm:inline-flex rounded-md")}
             >
               Request a Quote
             </Link>
@@ -99,7 +93,7 @@ export function SiteNavbar() {
               type="button"
               onClick={() => setOpen(v => !v)}
               aria-label={open ? "Close menu" : "Open menu"}
-              className="grid h-11 w-11 shrink-0 place-items-center rounded-xl border border-border xl:hidden"
+              className="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-border xl:hidden sm:h-11 sm:w-11"
             >
               {open ? <X className="size-5" /> : <Menu className="size-5" />}
             </button>
@@ -144,7 +138,7 @@ export function SiteNavbar() {
                     <Link
                       href={link.href}
                       className={cn(
-                        "group flex items-center gap-3 border-b border-border py-4 text-lg font-medium transition-colors",
+                        "group flex items-center gap-3 border-b border-border py-3.5 text-base font-medium transition-colors sm:py-4 sm:text-lg",
                         active ? "text-primary" : "text-foreground hover:text-primary"
                       )}
                     >
@@ -177,10 +171,14 @@ export function SiteNavbar() {
               </a>
               <Link
                 href="/request-quote"
-                className={cn(buttonVariants({ className: "mt-4 w-full rounded-full" }))}
+                className={cn(buttonVariants({ className: "mt-4 w-full rounded-md" }))}
               >
                 Request a Quote
               </Link>
+              <div className="flex items-center justify-between pt-4">
+                <span className="text-sm text-muted-foreground">Theme</span>
+                <ThemeToggle />
+              </div>
             </div>
           </div>
         </div>
