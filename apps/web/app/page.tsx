@@ -49,22 +49,22 @@ export default function HomePage() {
     <>
       {/* Hero */}
       <section className="relative overflow-hidden bg-background">
-        <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-20 lg:px-8 lg:py-28">
+        <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-20 lg:px-8 lg:py-28">
           <RevealOnScroll>
             <div className="mx-auto max-w-3xl text-center">
-              <span className="text-xs font-medium uppercase tracking-[0.2em] text-primary">
+              <span className="text-[0.65rem] font-medium uppercase tracking-[0.2em] text-primary sm:text-xs">
                 We Take Care of Your Health
               </span>
-              <h1 className="mt-5 text-3xl font-semibold tracking-tight text-foreground text-balance sm:text-4xl lg:text-5xl">
+              <h1 className="mt-3 text-2xl font-semibold leading-tight tracking-tight text-foreground text-balance sm:mt-5 sm:text-4xl lg:text-5xl">
                 Medical equipment that keeps working after the invoice is paid.
               </h1>
-              <p className="mt-4 text-base text-muted-foreground text-pretty sm:text-lg">
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground text-pretty sm:mt-4 sm:text-base lg:text-lg">
                 We supply, install and service medical, diagnostic and rehabilitation equipment across Tanzania — with certified technicians, genuine warranty, and support that answers the phone.
               </p>
-              <div className="mt-8 flex flex-col items-center justify-center gap-2.5 sm:flex-row sm:gap-3">
+              <div className="mt-6 flex flex-col items-center justify-center gap-2.5 sm:mt-8 sm:flex-row sm:gap-3">
                 <Link
                   href="/request-quote"
-                  className={cn(buttonVariants({ size: "sm" }), "group rounded-md")}
+                  className={cn(buttonVariants({ size: "sm" }), "group w-full rounded-md sm:w-auto")}
                 >
                   Request a quote
                   <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -73,7 +73,7 @@ export default function HomePage() {
                   href="/equipment"
                   className={cn(
                     buttonVariants({ variant: "outline", size: "sm" }),
-                    "rounded-md"
+                    "w-full rounded-md sm:w-auto"
                   )}
                 >
                   Browse equipment
@@ -108,7 +108,7 @@ export default function HomePage() {
             description="Most facilities juggle a separate vendor for supply, another for installation, and a third who never shows up for repairs. We do all three."
           />
         </RevealOnScroll>
-        <div className="mt-10 grid gap-4 sm:mt-12 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-10 grid grid-cols-2 gap-3 sm:mt-12 sm:gap-4 lg:grid-cols-4">
           {services.map((service, idx) => {
             const Icon = serviceIcons[service.icon] ?? HeartPulse
             return (
@@ -139,7 +139,7 @@ export default function HomePage() {
             </h2>
           </div>
         </RevealOnScroll>
-        <div className="grid gap-3 sm:grid-cols-2 sm:gap-4">
+        <div className="grid grid-cols-2 gap-3 sm:gap-4">
           {whyChooseUs.map((item, idx) => {
             const Icon = whyIcons[item.icon] ?? Users
             return (
@@ -159,15 +159,15 @@ export default function HomePage() {
 
       {/* Numbers */}
       <Section>
-        <div className="grid gap-6 sm:grid-cols-2 sm:gap-8 lg:grid-cols-4">
+        <div className="grid grid-cols-2 gap-4 sm:gap-8 lg:grid-cols-4">
           {statsNumbers.map((stat, idx) => (
             <RevealOnScroll key={stat.label} delay={idx * 80}>
               <div className="text-center">
                 <AnimatedCounter
                   value={stat.value}
-                  className="text-3xl font-semibold tabular-nums text-primary sm:text-4xl lg:text-5xl"
+                  className="text-2xl font-semibold tabular-nums text-primary sm:text-4xl lg:text-5xl"
                 />
-                <p className="mt-2 text-xs text-muted-foreground sm:text-sm">{stat.label}</p>
+                <p className="mt-1.5 text-xs text-muted-foreground sm:mt-2 sm:text-sm">{stat.label}</p>
               </div>
             </RevealOnScroll>
           ))}
@@ -184,7 +184,7 @@ export default function HomePage() {
             align="center"
           />
         </RevealOnScroll>
-        <div className="mt-10 grid gap-4 sm:mt-12 sm:grid-cols-2 lg:grid-cols-4 sm:gap-6">
+        <div className="mt-10 grid grid-cols-2 gap-3 sm:mt-12 sm:gap-6 lg:grid-cols-4">
           {teamMembers.map((member, idx) => (
             <RevealOnScroll key={member.name} delay={idx * 80}>
               <Link
@@ -312,7 +312,7 @@ export default function HomePage() {
             </Link>
           </div>
         </RevealOnScroll>
-        <div className="grid gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3">
+        <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3">
           {technologyCards.map((tech, idx) => (
             <RevealOnScroll key={tech.title} delay={idx * 80}>
               <div className="group flex h-full flex-col gap-3 rounded-xl border border-border bg-card p-5 sm:p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5">

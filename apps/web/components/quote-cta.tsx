@@ -24,7 +24,7 @@ export function QuoteCTA({
           <div className="mt-8 flex flex-col items-center justify-center gap-2.5 sm:flex-row sm:gap-3">
             <Link
               href="/request-quote"
-              className={cn(buttonVariants({ size: "sm" }), "rounded-md")}
+              className={cn(buttonVariants({ size: "sm" }), "w-full rounded-md sm:w-auto")}
             >
               Request a Quote
               <ArrowRight className="size-4" />
@@ -33,7 +33,7 @@ export function QuoteCTA({
               href="/contact"
               className={cn(
                 buttonVariants({ variant: "outline", size: "sm" }),
-                "rounded-md"
+                "w-full rounded-md sm:w-auto"
               )}
             >
               <Phone className="size-4" />
