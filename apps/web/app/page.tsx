@@ -72,10 +72,10 @@ export default function HomePage() {
               <p className="mt-3 text-xs leading-relaxed text-muted-foreground text-pretty sm:mt-4 sm:text-base lg:text-lg">
                 We supply, install and service medical, diagnostic and rehabilitation equipment across Tanzania — with certified technicians, genuine warranty, and support that answers the phone.
               </p>
-              <div className="mt-6 flex flex-col items-center justify-center gap-2.5 sm:mt-8 sm:flex-row sm:gap-3">
+              <div className="mt-6 flex flex-row flex-wrap items-center justify-center gap-2.5 sm:mt-8 sm:gap-3">
                 <Link
                   href="/request-quote"
-                  className={cn(buttonVariants({ size: "sm" }), "group w-full rounded-md sm:w-auto")}
+                  className={cn(buttonVariants({ size: "sm" }), "group rounded-md")}
                 >
                   Request a quote
                   <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -84,7 +84,7 @@ export default function HomePage() {
                   href="/equipment"
                   className={cn(
                     buttonVariants({ variant: "outline", size: "sm" }),
-                    "w-full rounded-md sm:w-auto"
+                    "rounded-md"
                   )}
                 >
                   Browse equipment
