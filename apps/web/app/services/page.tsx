@@ -26,6 +26,7 @@ export default function ServicesPage() {
         label="Services"
         title="Four services. One accountable supplier."
         subtitle="You can take one of these or all four. What you cannot do is end up with three vendors blaming each other while a theatre sits idle."
+        bgImage="/images/gtte 8.jpg"
       />
 
       <Section>

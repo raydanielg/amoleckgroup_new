@@ -49,7 +49,15 @@ export default function HomePage() {
     <>
       {/* Hero */}
       <section className="relative overflow-hidden bg-background">
-        <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-20 lg:px-8 lg:py-28">
+        {/* Background image */}
+        <div
+          className="pointer-events-none absolute inset-0 bg-cover bg-center opacity-[0.25]"
+          style={{ backgroundImage: "url('/images/gtte 8.jpg')" }}
+          aria-hidden
+        />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background/80" aria-hidden />
+
+        <div className="relative z-10 mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-20 lg:px-8 lg:py-28">
           <RevealOnScroll>
             <div className="mx-auto max-w-3xl text-center">
               <span className="text-[0.65rem] font-medium uppercase tracking-[0.2em] text-primary sm:text-xs">
@@ -70,7 +78,7 @@ export default function HomePage() {
                 {" "}across Tanzania.
               </h1>
               <p className="mt-3 text-xs leading-relaxed text-muted-foreground text-pretty sm:mt-4 sm:text-base lg:text-lg">
-                We supply, install and service medical, diagnostic and rehabilitation equipment across Tanzania — with certified technicians, genuine warranty, and support that answers the phone.
+                We supply, install and service medical, diagnostic and rehabilitation equipment across Tanzania with certified technicians, genuine warranty, and support that answers the phone.
               </p>
               <div className="mt-6 flex flex-row flex-wrap items-center justify-center gap-2.5 sm:mt-8 sm:gap-3">
                 <Link
@@ -126,11 +134,23 @@ export default function HomePage() {
               <RevealOnScroll key={service.slug} delay={idx * 80}>
                 <Link
                   href={service.cta.href}
-                  className="group flex h-full flex-col gap-3 rounded-xl border border-border bg-card p-5 sm:p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5"
+                  className="group flex h-full flex-col overflow-hidden rounded-xl border border-border bg-card transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5"
                 >
-                  <Icon className="size-6 text-primary transition-transform duration-300 group-hover:scale-110" />
-                  <h3 className="text-base font-semibold sm:text-lg">{service.title}</h3>
-                  <p className="text-sm text-muted-foreground">{service.description}</p>
+                  <div className="relative aspect-[16/10] overflow-hidden">
+                    <img
+                      src={service.image}
+                      alt={service.title}
+                      className="size-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent" />
+                    <div className="absolute left-4 top-4 grid size-10 place-items-center rounded-xl bg-background/90 shadow-sm backdrop-blur-sm">
+                      <Icon className="size-5 text-primary transition-transform duration-300 group-hover:scale-110" />
+                    </div>
+                  </div>
+                  <div className="flex flex-1 flex-col gap-2 p-4 sm:p-5">
+                    <h3 className="text-sm font-semibold sm:text-base lg:text-lg">{service.title}</h3>
+                    <p className="text-xs text-muted-foreground sm:text-sm">{service.description}</p>
+                  </div>
                 </Link>
               </RevealOnScroll>
             )
@@ -139,7 +159,12 @@ export default function HomePage() {
       </Section>
 
       {/* Why Facilities Stay With Us */}
-      <Section className="bg-muted/30">
+      <Section className="relative bg-muted/30">
+        <div
+          className="pointer-events-none absolute inset-0 bg-cover bg-center opacity-[0.06]"
+          style={{ backgroundImage: "url('/images/27155.jpg')" }}
+          aria-hidden
+        />
         <RevealOnScroll>
           <div className="mb-10 max-w-2xl sm:mb-16">
             <span className="text-xs font-medium uppercase tracking-[0.2em] text-primary">
@@ -169,8 +194,13 @@ export default function HomePage() {
       </Section>
 
       {/* Numbers */}
-      <Section>
-        <div className="grid grid-cols-2 gap-4 sm:gap-8 lg:grid-cols-4">
+      <Section className="relative overflow-hidden">
+        <div
+          className="pointer-events-none absolute inset-0 bg-cover bg-center opacity-[0.07]"
+          style={{ backgroundImage: "url('/images/34065.jpg')" }}
+          aria-hidden
+        />
+        <div className="relative z-10 grid grid-cols-2 gap-4 sm:gap-8 lg:grid-cols-4">
           {statsNumbers.map((stat, idx) => (
             <RevealOnScroll key={stat.label} delay={idx * 80}>
               <div className="text-center">
@@ -302,9 +332,14 @@ export default function HomePage() {
       </Section>
 
       {/* Technology */}
-      <Section className="bg-muted/30">
+      <Section className="relative bg-muted/30 overflow-hidden">
+        <div
+          className="pointer-events-none absolute inset-0 bg-cover bg-center opacity-[0.07]"
+          style={{ backgroundImage: "url('/images/16019.jpg')" }}
+          aria-hidden
+        />
         <RevealOnScroll>
-          <div className="mb-10 max-w-3xl sm:mb-16">
+          <div className="relative z-10 mb-10 max-w-3xl sm:mb-16">
             <span className="text-xs font-medium uppercase tracking-[0.2em] text-primary">
               Healthcare Technology
             </span>
@@ -323,7 +358,7 @@ export default function HomePage() {
             </Link>
           </div>
         </RevealOnScroll>
-        <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3">
+        <div className="relative z-10 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3">
           {technologyCards.map((tech, idx) => (
             <RevealOnScroll key={tech.title} delay={idx * 80}>
               <div className="group flex h-full flex-col gap-3 rounded-xl border border-border bg-card p-5 sm:p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5">

@@ -47,26 +47,52 @@ export default function AboutPage() {
       <PageHero
         label="About Us"
         title="We supply equipment we're willing to be called about at 2am."
+        bgImage="/images/gtte 8.jpg"
       />
 
       <Section>
         <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
           <RevealOnScroll>
-            <div className="aspect-[4/3] overflow-hidden rounded-2xl">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
               <img
-                src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80"
+                src="/images/amoleck.jpeg"
                 alt="Amoleck Group office"
-                className="size-full object-cover"
+                className="size-full object-cover transition-transform duration-700 hover:scale-105"
               />
+              <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 via-transparent to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4 rounded-xl bg-background/90 p-4 shadow-lg backdrop-blur-sm">
+                <p className="text-xs font-medium uppercase tracking-[0.16em] text-primary">Since 2015</p>
+                <p className="mt-1 text-sm font-semibold text-foreground">Dar es Salaam, Tanzania</p>
+              </div>
             </div>
           </RevealOnScroll>
-          <RevealOnScroll delay={150} className="flex flex-col justify-center gap-4">
-            <p className="text-base text-muted-foreground text-pretty sm:text-lg">
-              Amoleck Group has supplied and serviced medical equipment in Tanzania since 2015. We started because facilities kept telling us the same story: the machine arrived, nobody installed it properly, and when it broke the supplier had moved on.
+          <RevealOnScroll delay={150} className="flex flex-col justify-center gap-5">
+            <span className="text-xs font-medium uppercase tracking-[0.2em] text-primary">
+              Our Story
+            </span>
+            <h2 className="text-2xl font-semibold tracking-tight text-foreground text-balance sm:text-3xl">
+              <span className="text-primary">Amoleck Group</span> has supplied and serviced medical equipment in Tanzania since 2015.
+            </h2>
+            <p className="text-base leading-relaxed text-muted-foreground text-pretty sm:text-lg">
+              We started because facilities kept telling us the same story: the machine arrived, nobody installed it properly, and when it broke the supplier had moved on.
             </p>
-            <p className="text-base text-muted-foreground text-pretty sm:text-lg">
-              So we built the company around the part everyone else treats as an afterthought — what happens after delivery.
+            <p className="text-base leading-relaxed text-muted-foreground text-pretty sm:text-lg">
+              So we built the company around the part everyone else treats as an afterthought <span className="font-semibold text-foreground">what happens after delivery.</span>
             </p>
+            <div className="mt-2 flex flex-wrap gap-3">
+              <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm font-medium text-foreground">
+                <CheckCircle2 className="size-4 text-primary" />
+                Supply
+              </span>
+              <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm font-medium text-foreground">
+                <CheckCircle2 className="size-4 text-primary" />
+                Installation
+              </span>
+              <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm font-medium text-foreground">
+                <CheckCircle2 className="size-4 text-primary" />
+                Servicing
+              </span>
+            </div>
           </RevealOnScroll>
         </div>
       </Section>

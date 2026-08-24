@@ -1,13 +1,10 @@
 import type { Metadata } from "next"
-import { Phone, Mail, MapPin, Clock, MessageCircle, Send } from "lucide-react"
+import { Phone, Mail, MapPin, Clock, MessageCircle, Navigation } from "lucide-react"
 import { FacebookIcon, InstagramIcon, LinkedinIcon, TwitterIcon } from "@/components/social-icons"
-import { Button } from "@workspace/ui/components/button"
-import { Input } from "@workspace/ui/components/input"
-import { Textarea } from "@workspace/ui/components/textarea"
-import { Label } from "@workspace/ui/components/label"
 import { Section } from "@/components/section"
 import { PageHero } from "@/components/page-hero"
 import { RevealOnScroll } from "@/components/reveal-on-scroll"
+import { ContactForm } from "@/components/contact-form"
 import { siteConfig } from "@/lib/data"
 
 export const metadata: Metadata = {
@@ -22,6 +19,7 @@ export default function ContactPage() {
         label="Contact"
         title="Talk to someone who knows the equipment."
         subtitle="Call, email, or send the form. Enquiries received during working hours get a reply within two hours."
+        bgImage="/images/gtte 8.jpg"
       />
 
       <Section>
@@ -109,67 +107,41 @@ export default function ContactPage() {
 
           {/* Contact Form */}
           <RevealOnScroll delay={150}>
-            <div className="flex flex-col gap-6 rounded-2xl border border-border p-5 sm:p-6 lg:p-8">
-              <div>
-                <h3 className="text-base font-semibold sm:text-lg">Send Us a Message</h3>
-                <div className="mt-2 flex items-center gap-2 text-sm text-primary">
-                  <span className="size-2 rounded-full bg-primary" />
-                  We reply within 2 working hours
-                </div>
-              </div>
-              <form className="flex flex-col gap-4">
-                <div className="grid gap-4 sm:grid-cols-2">
-                  <div className="flex flex-col gap-2">
-                    <Label htmlFor="contact-name">Full name</Label>
-                    <Input id="contact-name" placeholder="John Doe" required />
-                  </div>
-                  <div className="flex flex-col gap-2">
-                    <Label htmlFor="contact-facility">Facility / organisation</Label>
-                    <Input id="contact-facility" placeholder="Your facility" />
-                  </div>
-                </div>
-                <div className="grid gap-4 sm:grid-cols-2">
-                  <div className="flex flex-col gap-2">
-                    <Label htmlFor="contact-email">Email</Label>
-                    <Input id="contact-email" type="email" placeholder="you@example.com" required />
-                  </div>
-                  <div className="flex flex-col gap-2">
-                    <Label htmlFor="contact-phone">Phone</Label>
-                    <Input id="contact-phone" type="tel" placeholder="+255 7XX XXX XXX" />
-                  </div>
-                </div>
-                <div className="flex flex-col gap-2">
-                  <Label htmlFor="contact-need">What do you need?</Label>
-                  <Input id="contact-need" placeholder="Equipment, servicing, site visit..." />
-                </div>
-                <div className="flex flex-col gap-2">
-                  <Label htmlFor="contact-message">Message</Label>
-                  <Textarea id="contact-message" placeholder="Your message..." rows={5} required />
-                </div>
-                <Button type="submit" className="w-full rounded-md">
-                  <Send className="size-4" />
-                  Send message
-                </Button>
-              </form>
-            </div>
+            <ContactForm />
           </RevealOnScroll>
         </div>
       </Section>
 
       {/* Map */}
-      <section className="border-t border-border">
+      <section className="border-t border-border bg-muted/30">
         <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
           <RevealOnScroll>
-            <div className="overflow-hidden rounded-2xl border border-border">
+            <div className="mb-6 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <span className="text-xs font-medium uppercase tracking-[0.2em] text-primary">Find us</span>
+                <h2 className="mt-2 text-xl font-semibold sm:text-2xl">Visit our office</h2>
+                <p className="mt-1 text-sm text-muted-foreground">Goba Kwa Ndambi, Dar es Salaam, Tanzania</p>
+              </div>
+              <a
+                href="https://www.google.com/maps/dir/?api=1&destination=Goba+Kwa+Ndambi+Dar+es+Salaam+Tanzania"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition-all hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/20"
+              >
+                <Navigation className="size-4" />
+                Open in Google Maps
+              </a>
+            </div>
+            <div className="overflow-hidden rounded-2xl border border-border shadow-lg">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31716.7103836!2d39.2641!3d-6.8160!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwNDgnNTcuNiJTIDM5wrAxNSc1MC44IkU!5e0!3m2!1sen!2stz!4v1700000000000!5m2!1sen!2stz"
+                src="https://www.google.com/maps?q=Goba+Kwa+Ndambi+Dar+es+Salaam+Tanzania&output=embed"
                 width="100%"
-                height="300"
+                height="400"
                 style={{ border: 0 }}
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Amoleck Group Location"
+                title="Amoleck Group Location - Goba Kwa Ndambi, Dar es Salaam"
               />
             </div>
           </RevealOnScroll>

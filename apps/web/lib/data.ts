@@ -54,8 +54,7 @@ export const services = [
       "Warranty registration",
       "Scheduled maintenance",
     ],
-    image:
-      "https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=800&q=80",
+    image: "/equipment/close-up-man-training-with-elastic-band.jpg",
     cta: { label: "Learn More", href: "/services/medical" },
   },
   {
@@ -72,8 +71,7 @@ export const services = [
       "Assessment tools",
       "Consumables supply",
     ],
-    image:
-      "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&q=80",
+    image: "/equipment/balance-exercise-with-bosu-ball-woman-gym.jpg",
     cta: { label: "Learn More", href: "/services/physiotherapy" },
   },
   {
@@ -89,8 +87,7 @@ export const services = [
       "Staff onboarding",
       "Ongoing technical support",
     ],
-    image:
-      "https://images.unsplash.com/photo-1451187580459-9546f8936333?w=800&q=80",
+    image: "/images/27155.jpg",
     cta: { label: "Learn More", href: "/services/technology" },
   },
   {
@@ -106,8 +103,7 @@ export const services = [
       "Emergency callout",
       "Service contracts",
     ],
-    image:
-      "https://images.unsplash.com/photo-1587854692152-cbe611db5902?w=800&q=80",
+    image: "/images/2149360124.jpg",
     cta: { label: "Learn More", href: "/services/equipment" },
   },
 ]
@@ -118,8 +114,7 @@ export const equipmentCategories = [
     slug: "physiotherapy-equipment",
     description:
       "Professional-grade physiotherapy and rehabilitation equipment for clinics and home use.",
-    image:
-      "https://images.unsplash.com/photo-1576091160399-5ba00a0a595c?w=800&q=80",
+    image: "/equipment/athletic-young-woman-doing-morning-fitness-workout-living-room-exercising-abdominal-muscle-sitting-yoga-swiss-ball.jpg",
     products: [
       {
         name: "Electrotherapy Unit",
@@ -143,8 +138,7 @@ export const equipmentCategories = [
     slug: "diagnostic-equipment",
     description:
       "Accurate and reliable diagnostic tools for healthcare professionals.",
-    image:
-      "https://images.unsplash.com/photo-1579154202943-47947c3a9ed7?w=800&q=80",
+    image: "/equipment/gym-equipment.jpg",
     products: [
       {
         name: "Digital Patient Monitor",
@@ -168,8 +162,7 @@ export const equipmentCategories = [
     slug: "rehabilitation-equipment",
     description:
       "Equipment designed to support recovery and rehabilitation programs.",
-    image:
-      "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&q=80",
+    image: "/equipment/equipment-rehabilitation-interior-physiotherapy-clinic.jpg",
     products: [
       {
         name: "Adjustable Rehabilitation Bed",
@@ -193,8 +186,7 @@ export const equipmentCategories = [
     slug: "medical-devices",
     description:
       "Modern medical devices for clinical and home healthcare settings.",
-    image:
-      "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=800&q=80",
+    image: "/equipment/black-man-exercising-pecs-gym-equipment.jpg",
     products: [
       {
         name: "Pulse Oximeter",

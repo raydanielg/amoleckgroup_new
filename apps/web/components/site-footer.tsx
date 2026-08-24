@@ -1,12 +1,12 @@
 "use client"
 
 import Link from "next/link"
-import { Phone, Mail, MapPin, ArrowRight, Clock, MessageCircle } from "lucide-react"
+import { Phone, Mail, MapPin, ArrowRight, Clock, MessageCircle, ChevronRight } from "lucide-react"
 import { FacebookIcon, InstagramIcon, LinkedinIcon, TwitterIcon } from "@/components/social-icons"
 import { RevealOnScroll } from "@/components/reveal-on-scroll"
 import { buttonVariants } from "@workspace/ui/components/button"
 import { cn } from "@workspace/ui/lib/utils"
-import { siteConfig, tickerItems } from "@/lib/data"
+import { siteConfig } from "@/lib/data"
 
 const serviceLinks = [
   { label: "Medical Equipment", href: "/services/medical" },
@@ -27,9 +27,9 @@ function FooterLink({ href, children }: { href: string; children: React.ReactNod
   return (
     <Link
       href={href}
-      className="group inline-flex items-center gap-1.5 py-1 text-sm text-muted-foreground transition-colors hover:text-foreground"
+      className="group inline-flex items-center gap-1.5 rounded-md px-2 py-1 text-sm text-muted-foreground transition-all duration-300 hover:bg-primary/5 hover:pl-3 hover:text-primary"
     >
-      <span className="h-px w-0 bg-primary transition-all duration-300 group-hover:w-3" />
+      <ChevronRight className="size-3.5 text-primary/40 transition-all duration-300 group-hover:translate-x-1 group-hover:text-primary" />
       {children}
     </Link>
   )
@@ -37,7 +37,7 @@ function FooterLink({ href, children }: { href: string; children: React.ReactNod
 
 function ColumnHeading({ children }: { children: React.ReactNode }) {
   return (
-    <h3 className="mb-5 text-xs font-semibold uppercase tracking-[0.16em] text-foreground">
+    <h3 className="mb-5 text-xs font-semibold uppercase tracking-[0.16em] text-foreground after:mt-2 after:block after:h-px after:w-8 after:bg-primary">
       {children}
     </h3>
   )
@@ -48,6 +48,56 @@ export function SiteFooter() {
 
   return (
     <footer className="relative overflow-hidden border-t border-border bg-muted/30 text-foreground">
+      {/* Background image */}
+      <div
+        className="pointer-events-none absolute inset-0 bg-cover bg-center opacity-[0.08]"
+        style={{ backgroundImage: "url('/images/gtte 8.jpg')" }}
+        aria-hidden
+      />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-muted/60 via-muted/40 to-muted/60" aria-hidden />
+
+      {/* Decorative side lines — zigzag waves */}
+      <svg
+        className="pointer-events-none absolute left-0 top-0 h-full w-24 opacity-[0.07]"
+        viewBox="0 0 60 800"
+        fill="none"
+        preserveAspectRatio="none"
+        aria-hidden
+      >
+        <path
+          d="M30 0 Q 0 50 30 100 T 30 200 T 30 300 T 30 400 T 30 500 T 30 600 T 30 700 T 30 800"
+          stroke="currentColor"
+          strokeWidth="2"
+          className="text-primary"
+        />
+        <path
+          d="M45 0 Q 15 50 45 100 T 45 200 T 45 300 T 45 400 T 45 500 T 45 600 T 45 700 T 45 800"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          className="text-primary"
+        />
+      </svg>
+      <svg
+        className="pointer-events-none absolute right-0 top-0 h-full w-24 opacity-[0.07]"
+        viewBox="0 0 60 800"
+        fill="none"
+        preserveAspectRatio="none"
+        aria-hidden
+      >
+        <path
+          d="M30 0 Q 60 50 30 100 T 30 200 T 30 300 T 30 400 T 30 500 T 30 600 T 30 700 T 30 800"
+          stroke="currentColor"
+          strokeWidth="2"
+          className="text-primary"
+        />
+        <path
+          d="M15 0 Q 45 50 15 100 T 15 200 T 15 300 T 15 400 T 15 500 T 15 600 T 15 700 T 15 800"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          className="text-primary"
+        />
+      </svg>
+
       {/* CTA strip */}
       <div className="relative z-10 border-b border-border">
         <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
@@ -84,21 +134,6 @@ export function SiteFooter() {
               </div>
             </RevealOnScroll>
           </div>
-        </div>
-      </div>
-
-      {/* Ticker strip */}
-      <div className="relative z-10 border-b border-border bg-background/50 py-4">
-        <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-2 px-4 sm:px-6 lg:px-8">
-          {tickerItems.map((item) => (
-            <span
-              key={item}
-              className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground"
-            >
-              <span className="size-1 rounded-full bg-primary/60" />
-              {item}
-            </span>
-          ))}
         </div>
       </div>
 
@@ -145,7 +180,7 @@ export function SiteFooter() {
           </div>
 
           {/* Services */}
-          <div className="lg:col-span-2">
+          <div className="border-t border-border pt-6 lg:border-l lg:border-t-0 lg:pl-6 lg:pt-0 lg:col-span-2">
             <RevealOnScroll>
               <ColumnHeading>Services</ColumnHeading>
             </RevealOnScroll>
@@ -161,7 +196,7 @@ export function SiteFooter() {
           </div>
 
           {/* Explore */}
-          <div className="lg:col-span-2">
+          <div className="border-t border-border pt-6 lg:border-l lg:border-t-0 lg:pl-6 lg:pt-0 lg:col-span-2">
             <RevealOnScroll>
               <ColumnHeading>Explore</ColumnHeading>
             </RevealOnScroll>
@@ -177,7 +212,7 @@ export function SiteFooter() {
           </div>
 
           {/* Contact */}
-          <div className="col-span-2 lg:col-span-4">
+          <div className="col-span-2 border-t border-border pt-6 lg:border-l lg:border-t-0 lg:pl-6 lg:pt-0 lg:col-span-4">
             <RevealOnScroll>
               <ColumnHeading>Get in touch</ColumnHeading>
             </RevealOnScroll>

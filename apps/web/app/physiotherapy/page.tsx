@@ -21,6 +21,7 @@ export default function PhysiotherapyPage() {
         label="Physiotherapy Equipment"
         title="Everything a physiotherapy practice needs to open its doors."
         subtitle="Whether you're setting up a single treatment room or a full rehabilitation department, we supply the equipment, install it, and train your team on it."
+        bgImage="/images/gtte 8.jpg"
       />
 
       <Section>
@@ -29,12 +30,12 @@ export default function PhysiotherapyPage() {
           <h2 className="mt-3 text-xl font-semibold sm:mt-4 sm:text-2xl">What we supply</h2>
           <p className="mt-2 text-sm text-muted-foreground sm:text-base">Treatment & assessment · Electrotherapy · Exercise & rehabilitation · Mobility & support · Consumables</p>
         </RevealOnScroll>
-        <div className="mt-10 grid gap-4 sm:mt-12 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 grid grid-cols-2 gap-3 sm:mt-12 sm:grid-cols-3 sm:gap-5">
           {physiotherapyServices.map((service, idx) => (
             <RevealOnScroll key={service} delay={idx * 80}>
-              <div className="group flex h-full flex-col gap-3 rounded-xl border border-border p-5 sm:p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5">
+              <div className="group flex h-full flex-col gap-2 rounded-xl border border-border bg-card p-4 transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 sm:p-5">
                 <CheckCircle2 className="size-5 text-primary transition-transform duration-300 group-hover:scale-110" />
-                <h3 className="text-base font-semibold sm:text-lg">{service}</h3>
+                <h3 className="text-sm font-semibold sm:text-base">{service}</h3>
               </div>
             </RevealOnScroll>
           ))}
@@ -44,12 +45,13 @@ export default function PhysiotherapyPage() {
       <Section className="bg-muted/30">
         <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
           <RevealOnScroll>
-            <div className="aspect-[4/3] overflow-hidden rounded-2xl">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
               <img
-                src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&q=80"
+                src="/equipment/equipment-rehabilitation-interior-physiotherapy-clinic.jpg"
                 alt="Rehabilitation facility"
-                className="size-full object-cover"
+                className="size-full object-cover transition-transform duration-700 hover:scale-105"
               />
+              <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 via-transparent to-transparent" />
             </div>
           </RevealOnScroll>
           <RevealOnScroll delay={150} className="flex flex-col justify-center gap-4">
